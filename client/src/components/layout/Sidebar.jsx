@@ -26,21 +26,19 @@ export default function Sidebar() {
 
   return (
     <aside
-      className="flex flex-col w-64 shrink-0 border-r"
-      style={{ background: 'var(--bg-secondary)', borderColor: 'var(--border)' }}
+      className="flex flex-col w-64 shrink-0 border-r border-archivist-border bg-archivist-dark"
     >
       {/* Logo */}
-      <div className="flex items-center gap-4 px-6 py-6 border-b" style={{ borderColor: 'var(--border)' }}>
+      <div className="flex items-center gap-4 px-6 py-6 border-b border-archivist-border">
         <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center relative"
-          style={{ background: 'var(--accent-purple-glow)', border: '1px solid rgba(168,127,251,0.2)' }}
+          className="w-10 h-10 rounded-xl flex items-center justify-center relative bg-archivist-purple-glow border border-archivist-purple/20"
         >
-          <Library size={20} style={{ color: 'var(--accent-purple)' }} />
-          <div className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full" style={{ background: 'var(--accent-purple)' }}></div>
+          <Library size={20} className="text-archivist-purple" />
+          <div className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-archivist-purple"></div>
         </div>
         <div>
-          <p className="font-bold text-[15px] tracking-tight" style={{ color: 'var(--text-primary)' }}>The Archivist</p>
-          <p className="text-[10px] uppercase tracking-wider font-semibold mt-0.5" style={{ color: 'var(--text-muted)' }}>Academic Sanctuary</p>
+          <p className="font-bold text-[15px] tracking-tight text-white">The Archivist</p>
+          <p className="text-[10px] uppercase tracking-wider font-semibold mt-0.5 text-archivist-muted">Academic Sanctuary</p>
         </div>
       </div>
 
@@ -48,8 +46,7 @@ export default function Sidebar() {
       <div className="px-5 py-6">
         <button
           onClick={() => navigate('/chat')}
-          className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-[14px] text-white transition-all hover:brightness-110 shadow-lg shadow-purple-900/20"
-          style={{ background: 'var(--accent-purple)' }}
+          className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-[14px] text-white transition-all hover:brightness-110 shadow-lg shadow-purple-900/20 bg-archivist-purple"
         >
           <Plus size={18} />
           New Session
@@ -65,21 +62,18 @@ export default function Sidebar() {
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] font-medium transition-all ${
                 isActive
-                  ? 'text-white'
-                  : 'hover:bg-white/5'
+                  ? 'text-white bg-archivist-purple-glow'
+                  : 'text-zinc-400 hover:bg-white/5 hover:text-zinc-300'
               }`
             }
-            style={({ isActive }) => ({
-              color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)',
-            })}
           >
             {({ isActive }) => (
               <>
                 <div className="relative">
                   {isActive && (
-                    <div className="absolute -left-7 top-1/2 -translate-y-1/2 w-1.5 h-6 rounded-r-full" style={{ background: 'var(--accent-purple)' }}></div>
+                    <div className="absolute -left-7 top-1/2 -translate-y-1/2 w-1.5 h-6 rounded-r-full bg-archivist-purple"></div>
                   )}
-                  <Icon size={18} style={{ color: isActive ? 'var(--accent-purple)' : 'inherit' }} />
+                  <Icon size={18} className={isActive ? 'text-archivist-purple' : 'inherit'} />
                 </div>
                 <span>{label}</span>
               </>
@@ -89,19 +83,17 @@ export default function Sidebar() {
       </nav>
 
       {/* Bottom */}
-      <div className="px-3 pb-6 pt-4 space-y-1 border-t" style={{ borderColor: 'var(--border)' }}>
+      <div className="px-3 pb-6 pt-4 space-y-1 border-t border-archivist-border">
         <NavLink
           to="/settings"
-          className="flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] font-medium transition-all hover:bg-white/5"
-          style={{ color: 'var(--text-secondary)' }}
+          className="flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] font-medium transition-all text-zinc-400 hover:bg-white/5 hover:text-zinc-300"
         >
           <Settings size={18} />
           Settings
         </NavLink>
         <NavLink
           to="/support"
-          className="flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] font-medium transition-all hover:bg-white/5"
-          style={{ color: 'var(--text-secondary)' }}
+          className="flex items-center gap-3 px-4 py-3 rounded-xl text-[14px] font-medium transition-all text-zinc-400 hover:bg-white/5 hover:text-zinc-300"
         >
           <SupportIcon size={18} />
           Support

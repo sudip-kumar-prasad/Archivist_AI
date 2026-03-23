@@ -7,9 +7,9 @@ const TopbarLinks = () => {
   if (pathname === '/dashboard' || pathname === '/') {
     return (
       <nav className="hidden md:flex items-center gap-6 ml-10 text-[14px] font-medium">
-        <span style={{ color: 'var(--text-primary)' }}>Dashboard</span>
-        <span style={{ color: 'var(--text-muted)' }} className="transition hover:text-white cursor-pointer">Archive</span>
-        <span style={{ color: 'var(--text-muted)' }} className="transition hover:text-white cursor-pointer">Resources</span>
+        <span className="text-white">Dashboard</span>
+        <span className="text-archivist-muted transition hover:text-white cursor-pointer">Archive</span>
+        <span className="text-archivist-muted transition hover:text-white cursor-pointer">Resources</span>
       </nav>
     )
   }
@@ -17,9 +17,9 @@ const TopbarLinks = () => {
   if (pathname === '/chat') {
     return (
       <nav className="hidden md:flex items-center gap-6 ml-10 text-[14px] font-medium">
-        <span style={{ color: 'var(--text-muted)' }} className="transition hover:text-white cursor-pointer">Library</span>
-        <span style={{ color: 'var(--text-primary)' }}>AI Chat</span>
-        <span style={{ color: 'var(--text-muted)' }} className="transition hover:text-white cursor-pointer">Documents</span>
+        <span className="text-archivist-muted transition hover:text-white cursor-pointer">Library</span>
+        <span className="text-white">AI Chat</span>
+        <span className="text-archivist-muted transition hover:text-white cursor-pointer">Documents</span>
       </nav>
     )
   }
@@ -27,27 +27,25 @@ const TopbarLinks = () => {
   if (pathname === '/qa-generator') {
     return (
       <nav className="hidden md:flex items-center gap-6 ml-10 text-[14px] font-medium">
-        <span style={{ color: 'var(--text-muted)' }} className="transition hover:text-white cursor-pointer">Dashboard</span>
-        <span style={{ color: 'var(--text-muted)' }} className="transition hover:text-white cursor-pointer">Explore</span>
-        <span style={{ color: 'var(--text-primary)' }}>Q&A Generator</span>
+        <span className="text-archivist-muted transition hover:text-white cursor-pointer">Dashboard</span>
+        <span className="text-archivist-muted transition hover:text-white cursor-pointer">Explore</span>
+        <span className="text-white">Q&A Generator</span>
       </nav>
     )
   }
 
-  // default fallback
   return null;
 }
 
 export default function Topbar() {
   return (
     <header
-      className="flex items-center justify-between px-8 py-5 border-b shrink-0"
-      style={{ background: 'transparent', borderColor: 'var(--border)' }}
+      className="flex items-center justify-between px-8 py-5 border-b shrink-0 bg-transparent border-archivist-border"
     >
       {/* Left: brand + navigation */}
       <div className="flex items-center">
-        <span className="font-bold text-[17px] tracking-tight" style={{ color: 'var(--text-primary)' }}>
-          Archivist <span style={{ color: 'var(--accent-purple)' }}>AI</span>
+        <span className="font-bold text-[17px] tracking-tight text-white">
+          Archivist <span className="text-archivist-purple">AI</span>
         </span>
         <TopbarLinks />
       </div>
@@ -56,8 +54,7 @@ export default function Topbar() {
       <div className="flex items-center gap-4">
         {/* Search */}
         <div
-          className="hidden md:flex items-center gap-3 px-4 py-2.5 rounded-full text-sm w-64 shadow-inner"
-          style={{ background: 'var(--bg-input)', border: '1px solid var(--border)', color: 'var(--text-muted)' }}
+          className="hidden md:flex items-center gap-3 px-4 py-2.5 rounded-full text-sm w-64 shadow-inner bg-archivist-input border border-archivist-border text-archivist-muted"
         >
           <Search size={15} />
           <input 
@@ -69,8 +66,7 @@ export default function Topbar() {
 
         {/* Dark mode toggle */}
         <button
-          className="w-10 h-10 flex items-center justify-center rounded-full transition hover:bg-white/5"
-          style={{ color: 'var(--text-secondary)' }}
+          className="w-10 h-10 flex items-center justify-center rounded-full transition hover:bg-white/5 text-zinc-400"
           aria-label="Toggle dark mode"
         >
           <Moon size={18} />
@@ -78,12 +74,11 @@ export default function Topbar() {
 
         {/* Notifications */}
         <button
-          className="w-10 h-10 flex items-center justify-center rounded-full transition hover:bg-white/5 relative"
-          style={{ color: 'var(--text-secondary)' }}
+          className="w-10 h-10 flex items-center justify-center rounded-full transition hover:bg-white/5 relative text-zinc-400"
           aria-label="Notifications"
         >
           <Bell size={18} />
-          <div className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full border-2 border-black" style={{ background: 'var(--accent-green)' }}></div>
+          <div className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full border-2 border-black bg-archivist-green"></div>
         </button>
 
         {/* Avatar */}

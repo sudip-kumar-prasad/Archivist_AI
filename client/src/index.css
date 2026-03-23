@@ -1,6 +1,26 @@
 @import "tailwindcss";
 
-/* ─── Design Tokens ─────────────────────────────────────────── */
+@theme {
+  --color-archivist-black: #0a0a0a;
+  --color-archivist-dark: #141416;
+  --color-archivist-main: #0d0d0f;
+  --color-archivist-card: #18181b;
+  --color-archivist-card-hover: #202024;
+  --color-archivist-input: #1a1a1e;
+  --color-archivist-border: #27272a;
+  --color-archivist-border-subtle: #1f1f22;
+
+  --color-archivist-purple: #a87ffb;
+  --color-archivist-purple-light: #c0a3ff;
+  --color-archivist-purple-glow: rgba(168, 127, 251, 0.15);
+  --color-archivist-green: #34d399;
+  --color-archivist-amber: #fbbf24;
+  --color-archivist-red: #f87171;
+
+  --font-sans: 'Inter', 'SF Pro Display', system-ui, -apple-system, sans-serif;
+}
+
+/* ─── Design Tokens (Legacy Support) ─────────────────────────── */
 :root {
   --bg-primary: #0a0a0a;
   --bg-secondary: #141416;

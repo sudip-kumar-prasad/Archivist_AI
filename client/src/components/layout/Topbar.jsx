@@ -1,75 +1,97 @@
 import { Search, Moon, Bell } from 'lucide-react'
 import { useLocation } from 'react-router-dom'
 
-const pageTitles = {
-  '/dashboard':       'Dashboard',
-  '/chat':            'AI Chat',
-  '/summarizer':      'Summarizer',
-  '/qa-generator':    'Q&A Generator',
-  '/resume-analyzer': 'Resume Analyzer',
-  '/meme-generator':  'Meme Generator',
+const TopbarLinks = () => {
+  const { pathname } = useLocation()
+  
+  if (pathname === '/dashboard' || pathname === '/') {
+    return (
+      <nav className="hidden md:flex items-center gap-6 ml-10 text-[14px] font-medium">
+        <span style={{ color: 'var(--text-primary)' }}>Dashboard</span>
+        <span style={{ color: 'var(--text-muted)' }} className="transition hover:text-white cursor-pointer">Archive</span>
+        <span style={{ color: 'var(--text-muted)' }} className="transition hover:text-white cursor-pointer">Resources</span>
+      </nav>
+    )
+  }
+  
+  if (pathname === '/chat') {
+    return (
+      <nav className="hidden md:flex items-center gap-6 ml-10 text-[14px] font-medium">
+        <span style={{ color: 'var(--text-muted)' }} className="transition hover:text-white cursor-pointer">Library</span>
+        <span style={{ color: 'var(--text-primary)' }}>AI Chat</span>
+        <span style={{ color: 'var(--text-muted)' }} className="transition hover:text-white cursor-pointer">Documents</span>
+      </nav>
+    )
+  }
+  
+  if (pathname === '/qa-generator') {
+    return (
+      <nav className="hidden md:flex items-center gap-6 ml-10 text-[14px] font-medium">
+        <span style={{ color: 'var(--text-muted)' }} className="transition hover:text-white cursor-pointer">Dashboard</span>
+        <span style={{ color: 'var(--text-muted)' }} className="transition hover:text-white cursor-pointer">Explore</span>
+        <span style={{ color: 'var(--text-primary)' }}>Q&A Generator</span>
+      </nav>
+    )
+  }
+
+  // default fallback
+  return null;
 }
 
 export default function Topbar() {
-  const { pathname } = useLocation()
-  const title = pageTitles[pathname] ?? 'Archivist AI'
-
   return (
     <header
-      className="flex items-center justify-between px-6 py-3 border-b shrink-0"
-      style={{ background: 'var(--bg-secondary)', borderColor: 'var(--border)' }}
+      className="flex items-center justify-between px-8 py-5 border-b shrink-0"
+      style={{ background: 'transparent', borderColor: 'var(--border)' }}
     >
-      {/* Left: brand + page title */}
-      <div className="flex items-center gap-6">
-        <span className="font-bold text-base" style={{ color: 'var(--text-primary)' }}>
+      {/* Left: brand + navigation */}
+      <div className="flex items-center">
+        <span className="font-bold text-[17px] tracking-tight" style={{ color: 'var(--text-primary)' }}>
           Archivist <span style={{ color: 'var(--accent-purple)' }}>AI</span>
         </span>
-        <nav className="hidden md:flex items-center gap-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
-          <span
-            className="font-semibold pb-0.5 border-b-2"
-            style={{ color: 'var(--text-primary)', borderColor: 'var(--accent-purple)' }}
-          >
-            {title}
-          </span>
-        </nav>
+        <TopbarLinks />
       </div>
 
       {/* Right: search + actions */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-4">
         {/* Search */}
         <div
-          className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm"
+          className="hidden md:flex items-center gap-3 px-4 py-2.5 rounded-full text-sm w-64 shadow-inner"
           style={{ background: 'var(--bg-input)', border: '1px solid var(--border)', color: 'var(--text-muted)' }}
         >
-          <Search size={14} />
-          <span>Search archives...</span>
+          <Search size={15} />
+          <input 
+            type="text" 
+            placeholder="Search archives..." 
+            className="bg-transparent border-none outline-none w-full text-white placeholder-zinc-500 text-[13px]"
+          />
         </div>
 
-        {/* Dark mode toggle placeholder */}
+        {/* Dark mode toggle */}
         <button
-          className="w-8 h-8 flex items-center justify-center rounded-lg transition hover:bg-white/5"
+          className="w-10 h-10 flex items-center justify-center rounded-full transition hover:bg-white/5"
           style={{ color: 'var(--text-secondary)' }}
           aria-label="Toggle dark mode"
         >
-          <Moon size={16} />
+          <Moon size={18} />
         </button>
 
         {/* Notifications */}
         <button
-          className="w-8 h-8 flex items-center justify-center rounded-lg transition hover:bg-white/5"
+          className="w-10 h-10 flex items-center justify-center rounded-full transition hover:bg-white/5 relative"
           style={{ color: 'var(--text-secondary)' }}
           aria-label="Notifications"
         >
-          <Bell size={16} />
+          <Bell size={18} />
+          <div className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full border-2 border-black" style={{ background: 'var(--accent-green)' }}></div>
         </button>
 
         {/* Avatar */}
-        <div
-          className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm"
-          style={{ background: 'var(--accent-purple)', color: '#fff' }}
-        >
-          A
-        </div>
+        <img 
+          src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix&backgroundColor=f59e0b" 
+          alt="Avatar" 
+          className="w-9 h-9 rounded-full border border-white/10 cursor-pointer hover:border-white/30 transition shadow-sm"
+        />
       </div>
     </header>
   )

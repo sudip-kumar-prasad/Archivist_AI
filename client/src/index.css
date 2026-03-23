@@ -2,25 +2,26 @@
 
 /* ─── Design Tokens ─────────────────────────────────────────── */
 :root {
-  --bg-primary: #0d0d0d;
-  --bg-secondary: #141414;
-  --bg-card: #1a1a1a;
-  --bg-card-hover: #212121;
-  --bg-input: #1e1e1e;
-  --border: #2a2a2a;
-  --border-subtle: #222222;
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141416;
+  --bg-main: #0d0d0f;
+  --bg-card: #18181b;
+  --bg-card-hover: #202024;
+  --bg-input: #1a1a1e;
+  --border: #27272a;
+  --border-subtle: #1f1f22;
 
-  --accent-purple: #8b5cf6;
-  --accent-purple-light: #a78bfa;
-  --accent-purple-glow: rgba(139, 92, 246, 0.15);
-  --accent-green: #10b981;
-  --accent-amber: #f59e0b;
-  --accent-red: #ef4444;
+  --accent-purple: #a87ffb;
+  --accent-purple-light: #c0a3ff;
+  --accent-purple-glow: rgba(168, 127, 251, 0.15);
+  --accent-green: #34d399;
+  --accent-amber: #fbbf24;
+  --accent-red: #f87171;
 
-  --text-primary: #f4f4f5;
+  --text-primary: #fafafa;
   --text-secondary: #a1a1aa;
-  --text-muted: #52525b;
-  --text-accent: #8b5cf6;
+  --text-muted: #71717a;
+  --text-accent: #a87ffb;
 }
 
 /* ─── Base ───────────────────────────────────────────────────── */

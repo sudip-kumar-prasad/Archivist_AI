@@ -8,91 +8,92 @@ import {
   Play,
   Save,
   Zap,
-  Info
+  Info,
+  Edit3
 } from 'lucide-react'
 
 export default function QAGenerator() {
   return (
-    <div className="animate-fade-in max-w-7xl mx-auto space-y-10 pb-12">
+    <div className="animate-fade-in max-w-7xl mx-auto space-y-12 pb-16">
       {/* Header */}
-      <div>
-        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-700 opacity-30 mb-2">KNOWLEDGE EXTRACTION ENGINE</p>
-        <h1 className="text-5xl font-extrabold tracking-tight mb-4 text-white">Q&A Generator</h1>
-        <p className="text-[15px] text-zinc-400 opacity-60 leading-relaxed max-w-2xl">
+      <div className="space-y-4">
+        <p className="text-[11px] font-black uppercase tracking-[0.4em] text-[#52525b]">KNOWLEDGE EXTRACTION ENGINE</p>
+        <h1 className="text-7xl font-black tracking-tight text-white leading-tight">Q&A Generator</h1>
+        <p className="text-[17px] text-[#a1a1aa] leading-relaxed max-w-3xl font-medium opacity-80">
           Synthesize comprehensive study material into interactive quizzes and flashcards using high-fidelity neural processing.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Left Column (Input & Config) */}
-        <div className="lg:col-span-4 space-y-6">
-          <div className="rounded-[2.5rem] border border-archivist-border p-8 space-y-8 bg-archivist-card">
-            <div className="space-y-4">
-              <h3 className="text-[10px] font-black tracking-widest uppercase text-zinc-700 opacity-40">Source Material</h3>
+        <div className="lg:col-span-4 space-y-8">
+          <div className="rounded-[3rem] border border-[#1f1f22] p-10 space-y-10 bg-[#141416]/50 shadow-sm">
+            <div className="space-y-6">
+              <h3 className="text-[11px] font-black tracking-widest uppercase text-[#52525b]">SOURCE MATERIAL</h3>
               <div className="relative group">
                 <textarea 
                   placeholder="Paste textbook excerpts, lecture notes, or research papers here..." 
-                  className="w-full h-48 bg-black/20 rounded-3xl p-6 text-sm border border-white/5 outline-none transition group-focus-within:border-archivist-purple/40 resize-none text-zinc-300 opacity-40 placeholder-zinc-700"
+                  className="w-full h-56 bg-black/30 rounded-[2rem] p-8 text-[15px] border border-[#27272a] outline-none transition-all group-focus-within:border-[#a87ffb]/50 group-focus-within:ring-4 group-focus-within:ring-[#a87ffb]/5 resize-none text-zinc-300 font-medium placeholder-zinc-800"
                 ></textarea>
-                <div className="absolute bottom-4 right-4 flex items-center gap-2">
-                  <button className="w-10 h-10 rounded-full bg-zinc-800/80 flex items-center justify-center text-zinc-400 opacity-60 hover:opacity-100 transition shadow-lg">
-                    <Mic size={16} />
+                <div className="absolute bottom-6 right-6 flex items-center gap-3">
+                  <button className="w-12 h-12 rounded-full bg-[#18181b] border border-[#27272a] flex items-center justify-center text-zinc-500 hover:text-white transition shadow-lg active:scale-90">
+                    <Mic size={20} />
                   </button>
-                  <button className="w-10 h-10 rounded-full bg-zinc-800/80 flex items-center justify-center text-zinc-400 opacity-60 hover:opacity-100 transition shadow-lg">
-                    <Link2 size={16} />
+                  <button className="w-12 h-12 rounded-full bg-[#18181b] border border-[#27272a] flex items-center justify-center text-zinc-500 hover:text-white transition shadow-lg active:scale-90">
+                    <Link2 size={20} />
                   </button>
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-3">
-                <h3 className="text-[9px] font-black tracking-widest uppercase text-zinc-700 opacity-30">Difficulty Level</h3>
-                <div className="px-4 py-3 rounded-xl bg-zinc-900 border border-white/5 text-[11px] font-bold text-white flex items-center justify-between group cursor-pointer hover:border-white/10 transition">
-                  <span className="opacity-60 font-medium">Junior (Advanced)</span>
-                  <ChevronRight size={14} className="text-zinc-500 opacity-40" />
+            <div className="grid grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <h3 className="text-[10px] font-black tracking-widest uppercase text-[#52525b]">DIFFICULTY LEVEL</h3>
+                <div className="px-5 py-4 rounded-2xl bg-[#18181b] border border-[#27272a] text-[13px] font-bold text-white flex items-center justify-between group cursor-pointer hover:border-[#a87ffb]/30 transition duration-300">
+                  <span className="opacity-80 font-bold">Junior (Advanced)</span>
+                  <ChevronRight size={16} className="text-[#a87ffb]" />
                 </div>
               </div>
-              <div className="space-y-3">
-                <h3 className="text-[9px] font-black tracking-widest uppercase text-zinc-700 opacity-30">Question Count</h3>
-                <div className="px-4 py-3 rounded-xl bg-zinc-900 border border-white/5 text-[11px] font-bold text-white opacity-60">
+              <div className="space-y-4">
+                <h3 className="text-[10px] font-black tracking-widest uppercase text-[#52525b]">QUESTION COUNT</h3>
+                <div className="px-5 py-4 rounded-2xl bg-[#18181b] border border-[#27272a] text-lg font-black text-white flex items-center justify-center opacity-80">
                    10
                 </div>
               </div>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="text-[9px] font-black tracking-widest uppercase text-zinc-700 opacity-30">Format Logic</h3>
-              <div className="grid grid-cols-2 gap-2 text-white">
+            <div className="space-y-6">
+              <h3 className="text-[10px] font-black tracking-widest uppercase text-[#52525b]">FORMAT LOGIC</h3>
+              <div className="grid grid-cols-2 gap-3 text-white">
                  {[
                    { label: 'Multiple Choice', active: true },
                    { label: 'True/False', active: false },
                    { label: 'Short Answer', active: false },
                    { label: 'Conceptual Gap-Fill', active: false }
                  ].map(f => (
-                   <button key={f.label} className={`py-3.5 px-4 rounded-xl text-[10px] font-bold uppercase tracking-wider transition ${f.active ? 'bg-archivist-purple/10 text-archivist-purple border border-archivist-purple/20 shadow-[0_0_20px_-5px_rgba(168,127,246,0.3)]' : 'bg-black/20 border border-white/5 opacity-40 hover:opacity-100'}`}>
+                   <button key={f.label} className={`py-4 px-4 rounded-2xl text-[11px] font-black uppercase tracking-widest transition-all duration-300 ${f.active ? 'bg-[#a87ffb] text-white shadow-[0_8px_25px_rgba(168,127,251,0.25)]' : 'bg-[#18181b] border border-[#27272a] text-[#52525b] hover:text-zinc-300 hover:border-zinc-700'}`}>
                      {f.label}
                    </button>
                  ))}
               </div>
             </div>
 
-            <button className="w-full py-5 rounded-[1.5rem] bg-archivist-purple text-white font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-purple-900/30 transition hover:scale-[1.02] hover:brightness-110 active:scale-98">
+            <button className="w-full py-6 rounded-[1.75rem] bg-[#a87ffb] text-white font-black text-[13px] uppercase tracking-[0.25em] shadow-[0_15px_40px_rgba(168,127,246,0.3)] transition-all hover:scale-[1.02] hover:brightness-110 active:scale-95 duration-300">
               Synthesize Questions
             </button>
           </div>
 
           {/* AI Usage Panel */}
-          <div className="p-8 rounded-[2.5rem] border border-archivist-border space-y-6 bg-archivist-card">
+          <div className="p-10 rounded-[3rem] border border-[#1f1f22] space-y-8 bg-[#141416]/50">
             <div className="flex items-center gap-3">
-              <Zap size={16} className="text-archivist-green" />
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-700 opacity-40">AI Usage Estimate</h3>
+              <Zap size={20} className="text-[#34d399]" />
+              <h3 className="text-[11px] font-black uppercase tracking-widest text-[#52525b]">AI USAGE ESTIMATE</h3>
             </div>
-            <div className="space-y-2">
-              <div className="h-1 bg-zinc-800 rounded-full overflow-hidden">
-                <div className="h-full bg-archivist-green rounded-full" style={{ width: '14%' }}></div>
+            <div className="space-y-4">
+              <div className="h-2 w-full bg-[#18181b] rounded-full overflow-hidden">
+                <div className="h-full bg-[#34d399] rounded-full shadow-[0_0_15px_rgba(52,211,153,0.4)]" style={{ width: '14%' }}></div>
               </div>
-              <div className="flex items-center justify-between text-[9px] font-bold uppercase tracking-widest text-zinc-700 opacity-30">
+              <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-[#52525b]">
                 <span>Est. Tokens: 4,120</span>
                 <span>Daily Quota: 14% used</span>
               </div>
@@ -102,66 +103,73 @@ export default function QAGenerator() {
 
         {/* Right Column (Scrollable Quiz Session) */}
         <div className="lg:col-span-8 space-y-8 relative">
-          <div className="rounded-[3rem] border border-archivist-border overflow-hidden relative bg-archivist-card">
+          <div className="rounded-[4rem] border border-[#1f1f22] overflow-hidden relative bg-[#141416]/80 backdrop-blur-md">
             
             {/* Session Toolbar */}
-            <div className="p-10 border-b border-zinc-800/50 flex items-center justify-between">
-              <div className="space-y-1">
-                <h2 className="text-2xl font-extrabold tracking-tight text-white">Generated Session: <span className="text-archivist-purple">Quantum Dynamics 101</span></h2>
-                <p className="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-700 opacity-30">12 questions found • 4.2s processing time</p>
+            <div className="p-12 border-b border-[#1f1f22] flex items-center justify-between">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-black tracking-tight text-white leading-tight">Generated Session: <span className="text-[#a87ffb]">Quantum Dynamics 101</span></h2>
+                <p className="text-[11px] font-black uppercase tracking-[0.3em] text-[#52525b]">12 QUESTIONS FOUND • 4.2S PROCESSING TIME</p>
               </div>
-              <div className="flex items-center gap-2 text-zinc-500 opacity-60">
-                <button className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white/5 transition border border-white/5"><Download size={18} /></button>
-                <button className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white/5 transition border border-white/5"><Share2 size={18} /></button>
+              <div className="flex items-center gap-3">
+                <button className="w-12 h-12 flex items-center justify-center rounded-2xl bg-[#18181b] border border-[#27272a] hover:bg-[#27272a] transition shadow-inner text-zinc-500 hover:text-white"><Download size={20} /></button>
+                <button className="w-12 h-12 flex items-center justify-center rounded-2xl bg-[#18181b] border border-[#27272a] hover:bg-[#27272a] transition shadow-inner text-zinc-500 hover:text-white"><Share2 size={20} /></button>
               </div>
             </div>
 
             {/* Questions List */}
-            <div className="p-10 space-y-12 max-h-[700px] overflow-y-auto pb-48 scrollbar-hide">
+            <div className="p-12 space-y-16 max-h-[800px] overflow-y-auto pb-48 custom-scrollbar">
               {/* Question Item 1 */}
-              <div className="space-y-8 animate-fade-in group">
+              <div className="space-y-10 animate-fade-in group relative">
+                <div className="absolute -left-12 top-0 bottom-0 w-1.5 bg-[#a87ffb] rounded-full opacity-60 group-hover:opacity-100 transition-opacity translate-y-2"></div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-500 opacity-40 py-2 px-4 rounded-full border border-white/5 bg-zinc-800/30">Question 01</span>
-                  <button className="text-zinc-700 hover:text-white transition"><Play size={16} className="rotate-90" /></button>
+                  <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#52525b] py-2.5 px-6 rounded-full border border-[#27272a] bg-[#18181b]/50">QUESTION 01</span>
+                  <button className="text-zinc-600 hover:text-white transition active:scale-90"><Edit3 size={20} /></button>
                 </div>
-                <h3 className="text-2xl font-bold leading-tight text-white pr-12">
+                <h3 className="text-3xl font-black leading-tight text-white pr-16 tracking-tight">
                   How does the Pauli Exclusion Principle apply to identical fermions occupying the same quantum state?
                 </h3>
                 
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {[
                     "They must have opposite spin orientations.",
                     "The principle only applies to bosons in low temperature states.",
                     "Identical fermions can occupy the same state if their energy levels are synchronized."
                   ].map((opt, i) => (
-                    <div key={i} className={`p-6 rounded-[2rem] border transition group/opt cursor-pointer flex items-center gap-4 ${i === 0 ? 'border-archivist-purple/30 bg-archivist-purple/5 shadow-[inset_0_0_20px_rgba(168,127,246,0.05)]' : 'border-white/5 bg-zinc-900/40 hover:bg-zinc-800'}`}>
-                       <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition ${i === 0 ? 'border-archivist-purple' : 'border-zinc-800 opacity-40'}`}>
-                         {i === 0 && <div className="w-2 h-2 rounded-full bg-archivist-purple"></div>}
+                    <div key={i} className={`p-8 rounded-[2.5rem] border transition-all duration-300 group/opt cursor-pointer flex items-center gap-6 ${i === 0 ? 'border-[#a87ffb]/40 bg-[#a87ffb]/10 shadow-[inset_0_0_30px_rgba(168,127,246,0.05)]' : 'border-[#1f1f22] bg-black/30 hover:bg-[#18181b] hover:border-[#27272a]'}`}>
+                       <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${i === 0 ? 'border-[#a87ffb] bg-[#a87ffb]/20 shadow-[0_0_15px_rgba(168,127,246,0.4)]' : 'border-[#27272a] opacity-40 group-hover/opt:border-zinc-500'}`}>
+                         {i === 0 && <div className="w-2.5 h-2.5 rounded-full bg-white shadow-lg"></div>}
                        </div>
-                       <span className={`text-[15px] transition ${i === 0 ? 'text-white opacity-100 font-medium' : 'text-zinc-500 opacity-60'}`}>{opt}</span>
+                       <span className={`text-[17px] leading-relaxed transition-colors duration-300 ${i === 0 ? 'text-white font-bold' : 'text-zinc-500 font-medium group-hover/opt:text-zinc-300'}`}>{opt}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
                {/* Question Item 2 placeholder */}
-               <div className="space-y-8 opacity-40">
+               <div className="space-y-10 opacity-40 blur-[1px] hover:blur-0 transition-all duration-700">
                 <div className="flex items-center justify-between">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-500 py-2 px-4 rounded-full border border-white/5">Question 02</span>
-                  <ChevronRight size={18} className="translate-y-0.5 text-zinc-600" />
+                  <div className="flex items-center gap-4">
+                    <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#52525b] py-2.5 px-6 rounded-full border border-[#1f1f22]">QUESTION 02</span>
+                  </div>
+                  <ChevronRight size={24} className="text-[#52525b]" />
                 </div>
-                <h3 className="text-xl font-bold leading-tight text-white">Explore the relationship between wavelength and...</h3>
+                <h3 className="text-2xl font-black leading-tight text-white tracking-tight">Explore the relationship between wavelength and momentum in De Broglie's...</h3>
+                <div className="flex items-center gap-3 py-6 px-10 rounded-[2rem] bg-black/20 border border-[#1f1f22]">
+                   <div className="w-2 h-2 rounded-full bg-[#52525b]"></div>
+                   <div className="h-2 flex-1 bg-[#1f1f22] rounded-full overflow-hidden truncate"></div>
+                </div>
               </div>
             </div>
 
             {/* Sticky Actions Bar */}
-            <div className="absolute bottom-10 left-10 right-10 flex items-center justify-center pointer-events-none">
-               <div className="bg-black/60 backdrop-blur-3xl border border-white/10 rounded-[3rem] p-3 flex gap-4 shadow-2xl pointer-events-auto">
-                 <button className="flex items-center gap-3 px-8 py-4 rounded-[2rem] bg-zinc-800 hover:bg-zinc-700 text-xs font-black uppercase tracking-widest text-zinc-400 transition">
-                   <Save size={16} /> Save Draft
+            <div className="absolute bottom-12 left-12 right-12 flex items-center justify-center pointer-events-none">
+               <div className="bg-black/80 backdrop-blur-2xl border border-white/10 rounded-[4rem] p-4 flex gap-6 shadow-[0_30px_100px_rgba(0,0,0,0.8)] pointer-events-auto">
+                 <button className="flex items-center gap-4 px-10 py-5 rounded-[3rem] bg-[#18181b] hover:bg-[#27272a] text-[12px] font-black uppercase tracking-[0.2em] text-[#a1a1aa] transition active:scale-95 group">
+                   <Save size={20} className="group-hover:text-white transition" /> Save Draft
                  </button>
-                 <button className="flex items-center gap-3 px-10 py-4 rounded-[2rem] bg-archivist-purple text-white text-xs font-black uppercase tracking-widest shadow-xl shadow-purple-900/40 hover:scale-105 active:scale-95 transition">
-                   <Play size={16} fill="white" /> Start Quiz
+                 <button className="flex items-center gap-4 px-14 py-5 rounded-[3rem] bg-gradient-to-r from-[#a87ffb] to-[#c0a3ff] text-white text-[12px] font-black uppercase tracking-[0.25em] shadow-[0_15px_40px_rgba(168,127,246,0.3)] hover:scale-105 active:scale-95 transition-all duration-300">
+                   <Play size={20} fill="white" /> Start Quiz
                  </button>
                </div>
             </div>
@@ -170,14 +178,14 @@ export default function QAGenerator() {
       </div>
 
       {/* Page Footer */}
-      <footer className="pt-20 pb-8 flex items-center justify-between border-t border-zinc-800/50">
-        <div className="flex items-center gap-10 text-[10px] font-bold tracking-widest text-zinc-700 opacity-30 uppercase">
+      <footer className="pt-24 pb-8 flex items-center justify-between border-t border-[#1f1f22]">
+        <div className="flex items-center gap-12 text-[11px] font-black uppercase tracking-[0.4em] text-[#52525b]">
            <span>© 2024 ARCHIVIST AI</span>
            <span>PROTOCOL v.2.1</span>
            <span>RESOURCES</span>
         </div>
-        <div className="flex items-center gap-2 text-[10px] font-bold tracking-widest text-archivist-green opacity-80 uppercase">
-           <span className="w-1.5 h-1.5 rounded-full bg-archivist-green animate-pulse"></span>
+        <div className="flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-[#34d399] opacity-80">
+           <span className="w-2 h-2 rounded-full bg-[#34d399] animate-pulse"></span>
            SYSTEM STATUS: OPTIMAL
         </div>
       </footer>

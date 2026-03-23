@@ -46,12 +46,12 @@ const TopbarLinks = () => {
   if (links.length === 0) return null
 
   return (
-    <nav className="hidden md:flex items-center gap-8 ml-10">
+    <nav className="hidden md:flex items-center gap-10 ml-12">
       {links.map((link, i) => (
         <span 
           key={i} 
-          className={`text-[14px] font-bold tracking-tight cursor-pointer transition-colors ${
-            link.active ? 'text-white' : 'text-[#52525b] hover:text-white'
+          className={`text-[15px] font-black uppercase tracking-[0.15em] cursor-pointer transition-all duration-300 ${
+            link.active ? 'text-white' : 'text-[#52525b] hover:text-zinc-300'
           }`}
         >
           {link.label}
@@ -63,37 +63,37 @@ const TopbarLinks = () => {
 
 export default function Topbar() {
   return (
-    <header className="flex items-center justify-between px-10 py-6 border-b border-[#1f1f22] bg-transparent backdrop-blur-sm shrink-0">
+    <header className="flex items-center justify-between px-12 py-8 border-b border-[#1f1f22] bg-transparent shrink-0">
       {/* Brand & Nav */}
       <div className="flex items-center">
-        <h1 className="text-[18px] font-black tracking-tight text-white italic">
+        <h1 className="text-[22px] font-black tracking-tighter text-white italic">
           Archivist <span className="text-[#a87ffb] not-italic">AI</span>
         </h1>
         <TopbarLinks />
       </div>
 
       {/* Actions */}
-      <div className="flex items-center gap-5">
-        <div className="hidden lg:flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#18181b] border border-[#27272a] w-[320px] shadow-inner focus-within:border-[#a87ffb]/40 focus-within:ring-1 focus-within:ring-[#a87ffb]/20 transition-all">
-          <Search size={16} className="text-zinc-600" />
+      <div className="flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-4 px-6 py-3 rounded-full bg-[#18181b] border border-[#27272a] w-[360px] shadow-inner focus-within:border-[#a87ffb]/40 transition-all duration-500">
+          <Search size={18} className="text-[#52525b]" />
           <input 
             type="text" 
             placeholder="Search archives..." 
-            className="bg-transparent border-none outline-none w-full text-white placeholder-[#52525b] text-[13px] font-medium"
+            className="bg-transparent border-none outline-none w-full text-white placeholder-zinc-800 text-[14px] font-bold tracking-tight"
           />
         </div>
 
-        <div className="flex items-center gap-2">
-          <button className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 text-zinc-400 transition-colors">
-            <Moon size={20} />
+        <div className="flex items-center gap-3">
+          <button className="w-11 h-11 flex items-center justify-center rounded-full hover:bg-white/5 text-zinc-500 transition-all active:scale-90">
+            <Moon size={22} fill="currentColor" className="opacity-20" />
           </button>
-          <button className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 text-zinc-400 relative transition-colors">
-            <Bell size={20} />
-            <div className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full border-2 border-[#0a0a0a] bg-[#34d399]"></div>
+          <button className="w-11 h-11 flex items-center justify-center rounded-full hover:bg-white/5 text-zinc-500 relative transition-all active:scale-90">
+            <Bell size={22} />
+            <div className="absolute top-3 right-3 w-2.5 h-2.5 rounded-full border-2 border-[#0a0a0a] bg-[#34d399] shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>
           </button>
         </div>
 
-        <div className="w-10 h-10 rounded-full border-2 border-white/5 overflow-hidden hover:border-white/20 transition-all cursor-pointer shadow-md">
+        <div className="w-11 h-11 rounded-full border-2 border-white/5 overflow-hidden hover:border-white/20 transition-all cursor-pointer shadow-lg active:scale-95">
           <img 
             src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix&backgroundColor=f59e0b" 
             alt="User" 

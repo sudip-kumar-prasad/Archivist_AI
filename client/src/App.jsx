@@ -5,7 +5,6 @@ import AIChat from './pages/AIChat'
 import Summarizer from './pages/Summarizer'
 import QAGenerator from './pages/QAGenerator'
 import ResumeAnalyzer from './pages/ResumeAnalyzer'
-import MemeGenerator from './pages/MemeGenerator'
 
 export default function App() {
   return (
@@ -18,7 +17,6 @@ export default function App() {
           <Route path="summarizer" element={<Summarizer />} />
           <Route path="qa-generator" element={<QAGenerator />} />
           <Route path="resume-analyzer" element={<ResumeAnalyzer />} />
-          <Route path="meme-generator" element={<MemeGenerator />} />
         </Route>
       </Routes>
     </BrowserRouter>

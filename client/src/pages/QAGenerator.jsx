@@ -1,194 +1,208 @@
-import { 
-  FileText, 
-  Mic, 
-  Link2, 
-  Download, 
-  Share2, 
-  ChevronRight,
-  Play,
-  Save,
-  Zap,
-  Info,
-  Edit3
-} from 'lucide-react'
+import { useState } from 'react'
+import { Mic, Download, Share2, Pencil, ChevronDown, BookOpen, Zap } from 'lucide-react'
+
+const mockQuestions = [
+  {
+    id: 'QUESTION 01',
+    question: 'How does the Pauli Exclusion Principle apply to identical fermions occupying the same quantum state?',
+    options: [
+      'They must have opposite spin orientations.',
+      'The principle only applies to bosons in low temperature states.',
+      'Identical fermions can occupy the same state if their energy levels are synchronized.',
+    ]
+  }
+]
 
 export default function QAGenerator() {
+  const [selectedOption, setSelectedOption] = useState(null)
+  const [difficulty, setDifficulty] = useState('Junior (Advanced)')
+  const [count, setCount] = useState(10)
+  const [activeFormat, setActiveFormat] = useState('Multiple Choice')
+
+  const formats = ['Multiple Choice', 'True/False', 'Short Answer', 'Conceptual Gap-Fill']
+
   return (
-    <div className="animate-fade-in max-w-7xl mx-auto space-y-12 pb-16">
-      {/* Header */}
-      <div className="space-y-4">
-        <p className="text-[11px] font-black uppercase tracking-[0.4em] text-[#52525b]">KNOWLEDGE EXTRACTION ENGINE</p>
-        <h1 className="text-7xl font-black tracking-tight text-white leading-tight">Q&A Generator</h1>
-        <p className="text-[17px] text-[#a1a1aa] leading-relaxed max-w-3xl font-medium opacity-80">
-          Synthesize comprehensive study material into interactive quizzes and flashcards using high-fidelity neural processing.
-        </p>
-      </div>
+    <div className="flex flex-col h-full">
+      {/* Content area */}
+      <div className="flex flex-1 gap-0 overflow-hidden">
+        {/* Left: Generator Panel */}
+        <div className="w-[380px] shrink-0 border-r border-white/[0.06] flex flex-col">
+          {/* Header */}
+          <div className="px-8 pt-6 pb-5 border-b border-white/[0.06]">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 mb-1">Knowledge Extraction Engine</p>
+            <h1 className="text-[26px] font-black text-white">Q&A Generator</h1>
+            <p className="text-[13px] text-zinc-500 mt-2 leading-relaxed">
+              Synthesize comprehensive study material into interactive quizzes and flashcards using high-fidelity neural processing.
+            </p>
+          </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-        {/* Left Column (Input & Config) */}
-        <div className="lg:col-span-4 space-y-8">
-          <div className="rounded-[3rem] border border-[#1f1f22] p-10 space-y-10 bg-[#141416]/50 shadow-sm">
-            <div className="space-y-6">
-              <h3 className="text-[11px] font-black tracking-widest uppercase text-[#52525b]">SOURCE MATERIAL</h3>
-              <div className="relative group">
-                <textarea 
-                  placeholder="Paste textbook excerpts, lecture notes, or research papers here..." 
-                  className="w-full h-56 bg-black/30 rounded-[2rem] p-8 text-[15px] border border-[#27272a] outline-none transition-all group-focus-within:border-[#a87ffb]/50 group-focus-within:ring-4 group-focus-within:ring-[#a87ffb]/5 resize-none text-zinc-300 font-medium placeholder-zinc-800"
-                ></textarea>
-                <div className="absolute bottom-6 right-6 flex items-center gap-3">
-                  <button className="w-12 h-12 rounded-full bg-[#18181b] border border-[#27272a] flex items-center justify-center text-zinc-500 hover:text-white transition shadow-lg active:scale-90">
-                    <Mic size={20} />
+          <div className="p-6 space-y-5 flex-1 overflow-y-auto custom-scrollbar">
+            {/* Source Material */}
+            <div className="space-y-2">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Source Material</p>
+              <div className="bg-[#1f1f23] border border-white/[0.06] rounded-xl relative">
+                <textarea
+                  className="w-full bg-transparent outline-none text-[13px] text-zinc-400 placeholder-zinc-700 p-4 resize-none leading-relaxed"
+                  rows={7}
+                  placeholder="Paste textbook excerpts, lecture notes, or research papers here..."
+                />
+                <div className="absolute bottom-3 right-3 flex items-center gap-2 text-zinc-700">
+                  <Mic size={15} className="hover:text-white cursor-pointer transition" />
+                  <span className="text-[13px]">∞</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Difficulty & Count */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Difficulty Level</p>
+                <button className="w-full flex items-center justify-between bg-[#1f1f23] border border-white/[0.06] rounded-xl px-4 py-3 text-[13px] text-zinc-300">
+                  {difficulty}
+                  <ChevronDown size={14} className="text-zinc-600" />
+                </button>
+              </div>
+              <div className="space-y-2">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Question Count</p>
+                <div className="bg-[#1f1f23] border border-white/[0.06] rounded-xl px-4 py-3 text-[13px] text-zinc-300">
+                  {count}
+                </div>
+              </div>
+            </div>
+
+            {/* Format Logic */}
+            <div className="space-y-2">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Format Logic</p>
+              <div className="grid grid-cols-2 gap-2">
+                {formats.map(f => (
+                  <button
+                    key={f}
+                    onClick={() => setActiveFormat(f)}
+                    className={`px-3 py-2.5 rounded-xl text-[12px] font-semibold border transition-all ${
+                      activeFormat === f
+                        ? 'bg-[#a87ffb] border-[#a87ffb] text-white'
+                        : 'bg-[#1f1f23] border-white/[0.06] text-zinc-400 hover:border-white/10'
+                    }`}
+                  >
+                    {f}
                   </button>
-                  <button className="w-12 h-12 rounded-full bg-[#18181b] border border-[#27272a] flex items-center justify-center text-zinc-500 hover:text-white transition shadow-lg active:scale-90">
-                    <Link2 size={20} />
-                  </button>
-                </div>
+                ))}
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <h3 className="text-[10px] font-black tracking-widest uppercase text-[#52525b]">DIFFICULTY LEVEL</h3>
-                <div className="px-5 py-4 rounded-2xl bg-[#18181b] border border-[#27272a] text-[13px] font-bold text-white flex items-center justify-between group cursor-pointer hover:border-[#a87ffb]/30 transition duration-300">
-                  <span className="opacity-80 font-bold">Junior (Advanced)</span>
-                  <ChevronRight size={16} className="text-[#a87ffb]" />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-[10px] font-black tracking-widest uppercase text-[#52525b]">QUESTION COUNT</h3>
-                <div className="px-5 py-4 rounded-2xl bg-[#18181b] border border-[#27272a] text-lg font-black text-white flex items-center justify-center opacity-80">
-                   10
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <h3 className="text-[10px] font-black tracking-widest uppercase text-[#52525b]">FORMAT LOGIC</h3>
-              <div className="grid grid-cols-2 gap-3 text-white">
-                 {[
-                   { label: 'Multiple Choice', active: true },
-                   { label: 'True/False', active: false },
-                   { label: 'Short Answer', active: false },
-                   { label: 'Conceptual Gap-Fill', active: false }
-                 ].map(f => (
-                   <button key={f.label} className={`py-4 px-4 rounded-2xl text-[11px] font-black uppercase tracking-widest transition-all duration-300 ${f.active ? 'bg-[#a87ffb] text-white shadow-[0_8px_25px_rgba(168,127,251,0.25)]' : 'bg-[#18181b] border border-[#27272a] text-[#52525b] hover:text-zinc-300 hover:border-zinc-700'}`}>
-                     {f.label}
-                   </button>
-                 ))}
-              </div>
-            </div>
-
-            <button className="w-full py-6 rounded-[1.75rem] bg-[#a87ffb] text-white font-black text-[13px] uppercase tracking-[0.25em] shadow-[0_15px_40px_rgba(168,127,246,0.3)] transition-all hover:scale-[1.02] hover:brightness-110 active:scale-95 duration-300">
+            {/* Synthesize button */}
+            <button className="w-full py-4 rounded-2xl bg-[#a87ffb] hover:bg-[#8d6bd0] text-white font-black text-[13px] uppercase tracking-widest transition-all shadow-[0_8px_30px_rgba(168,127,251,0.3)] active:scale-98">
               Synthesize Questions
             </button>
           </div>
 
-          {/* AI Usage Panel */}
-          <div className="p-10 rounded-[3rem] border border-[#1f1f22] space-y-8 bg-[#141416]/50">
-            <div className="flex items-center gap-3">
-              <Zap size={20} className="text-[#34d399]" />
-              <h3 className="text-[11px] font-black uppercase tracking-widest text-[#52525b]">AI USAGE ESTIMATE</h3>
+          {/* AI Usage Estimate */}
+          <div className="px-6 pb-5 border-t border-white/[0.06] pt-4 space-y-2">
+            <div className="flex items-center gap-2">
+              <Zap size={12} className="text-[#34d399]" />
+              <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-600">AI Usage Estimate</p>
             </div>
-            <div className="space-y-4">
-              <div className="h-2 w-full bg-[#18181b] rounded-full overflow-hidden">
-                <div className="h-full bg-[#34d399] rounded-full shadow-[0_0_15px_rgba(52,211,153,0.4)]" style={{ width: '14%' }}></div>
-              </div>
-              <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-[#52525b]">
-                <span>Est. Tokens: 4,120</span>
-                <span>Daily Quota: 14% used</span>
-              </div>
+            <div className="h-1 bg-[#2a2a30] rounded-full overflow-hidden">
+              <div className="h-full bg-[#34d399] rounded-full" style={{ width: '14%' }} />
+            </div>
+            <div className="flex justify-between text-[10px] text-zinc-700 font-semibold">
+              <span>EST. TOKENS: 4,120</span>
+              <span>DAILY QUOTA: 14% USED</span>
             </div>
           </div>
         </div>
 
-        {/* Right Column (Scrollable Quiz Session) */}
-        <div className="lg:col-span-8 space-y-8 relative">
-          <div className="rounded-[4rem] border border-[#1f1f22] overflow-hidden relative bg-[#141416]/80 backdrop-blur-md">
-            
-            {/* Session Toolbar */}
-            <div className="p-12 border-b border-[#1f1f22] flex items-center justify-between">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-black tracking-tight text-white leading-tight">Generated Session: <span className="text-[#a87ffb]">Quantum Dynamics 101</span></h2>
-                <p className="text-[11px] font-black uppercase tracking-[0.3em] text-[#52525b]">12 QUESTIONS FOUND • 4.2S PROCESSING TIME</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <button className="w-12 h-12 flex items-center justify-center rounded-2xl bg-[#18181b] border border-[#27272a] hover:bg-[#27272a] transition shadow-inner text-zinc-500 hover:text-white"><Download size={20} /></button>
-                <button className="w-12 h-12 flex items-center justify-center rounded-2xl bg-[#18181b] border border-[#27272a] hover:bg-[#27272a] transition shadow-inner text-zinc-500 hover:text-white"><Share2 size={20} /></button>
-              </div>
+        {/* Right: Generated Session Panel */}
+        <div className="flex-1 flex flex-col overflow-hidden">
+          <div className="px-8 pt-6 pb-4 border-b border-white/[0.06] flex items-start justify-between shrink-0">
+            <div>
+              <h2 className="text-[20px] font-bold text-white">
+                Generated Session: <span className="text-[#a87ffb]">Quantum Dynamics 101</span>
+              </h2>
+              <p className="text-[10px] text-zinc-600 font-semibold uppercase tracking-widest mt-1">
+                12 Questions Found • 4.2s Processing Time
+              </p>
             </div>
+            <div className="flex items-center gap-3 text-zinc-600">
+              <Download size={16} className="hover:text-white cursor-pointer transition" />
+              <Share2 size={16} className="hover:text-white cursor-pointer transition" />
+            </div>
+          </div>
 
-            {/* Questions List */}
-            <div className="p-12 space-y-16 max-h-[800px] overflow-y-auto pb-48 custom-scrollbar">
-              {/* Question Item 1 */}
-              <div className="space-y-10 animate-fade-in group relative">
-                <div className="absolute -left-12 top-0 bottom-0 w-1.5 bg-[#a87ffb] rounded-full opacity-60 group-hover:opacity-100 transition-opacity translate-y-2"></div>
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#52525b] py-2.5 px-6 rounded-full border border-[#27272a] bg-[#18181b]/50">QUESTION 01</span>
-                  <button className="text-zinc-600 hover:text-white transition active:scale-90"><Edit3 size={20} /></button>
-                </div>
-                <h3 className="text-3xl font-black leading-tight text-white pr-16 tracking-tight">
-                  How does the Pauli Exclusion Principle apply to identical fermions occupying the same quantum state?
-                </h3>
-                
-                <div className="space-y-4">
-                  {[
-                    "They must have opposite spin orientations.",
-                    "The principle only applies to bosons in low temperature states.",
-                    "Identical fermions can occupy the same state if their energy levels are synchronized."
-                  ].map((opt, i) => (
-                    <div key={i} className={`p-8 rounded-[2.5rem] border transition-all duration-300 group/opt cursor-pointer flex items-center gap-6 ${i === 0 ? 'border-[#a87ffb]/40 bg-[#a87ffb]/10 shadow-[inset_0_0_30px_rgba(168,127,246,0.05)]' : 'border-[#1f1f22] bg-black/30 hover:bg-[#18181b] hover:border-[#27272a]'}`}>
-                       <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${i === 0 ? 'border-[#a87ffb] bg-[#a87ffb]/20 shadow-[0_0_15px_rgba(168,127,246,0.4)]' : 'border-[#27272a] opacity-40 group-hover/opt:border-zinc-500'}`}>
-                         {i === 0 && <div className="w-2.5 h-2.5 rounded-full bg-white shadow-lg"></div>}
-                       </div>
-                       <span className={`text-[17px] leading-relaxed transition-colors duration-300 ${i === 0 ? 'text-white font-bold' : 'text-zinc-500 font-medium group-hover/opt:text-zinc-300'}`}>{opt}</span>
+          <div className="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
+            {/* Active Question */}
+            <div className="bg-[#1f1f23] border border-white/[0.06] rounded-2xl p-6 space-y-5">
+              <div className="flex items-center justify-between">
+                <span className="px-2 py-1 rounded bg-[#a87ffb]/20 text-[#a87ffb] text-[9px] font-bold uppercase tracking-widest">
+                  Question 01
+                </span>
+                <Pencil size={14} className="text-zinc-600 hover:text-white cursor-pointer transition" />
+              </div>
+              <p className="text-[16px] font-bold text-white leading-snug">
+                How does the Pauli Exclusion Principle apply to identical fermions occupying the same quantum state?
+              </p>
+              <div className="space-y-3">
+                {[
+                  'They must have opposite spin orientations.',
+                  'The principle only applies to bosons in low temperature states.',
+                  'Identical fermions can occupy the same state if their energy levels are synchronized.',
+                ].map((option, i) => (
+                  <div
+                    key={i}
+                    onClick={() => setSelectedOption(i)}
+                    className={`flex items-center gap-4 px-5 py-4 rounded-xl border cursor-pointer transition-all ${ 
+                      selectedOption === i
+                        ? 'border-[#a87ffb] bg-[#a87ffb]/10'
+                        : 'border-white/[0.06] bg-[#2a2a30] hover:border-white/10'
+                    }`}
+                  >
+                    <div className={`w-5 h-5 rounded-full border-2 shrink-0 ${selectedOption === i ? 'border-[#a87ffb]' : 'border-zinc-700'}`}>
+                      {selectedOption === i && <div className="w-full h-full rounded-full bg-[#a87ffb] scale-50" />}
                     </div>
-                  ))}
-                </div>
-              </div>
-
-               {/* Question Item 2 placeholder */}
-               <div className="space-y-10 opacity-40 blur-[1px] hover:blur-0 transition-all duration-700">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#52525b] py-2.5 px-6 rounded-full border border-[#1f1f22]">QUESTION 02</span>
+                    <p className="text-[13px] text-zinc-300">{option}</p>
                   </div>
-                  <ChevronRight size={24} className="text-[#52525b]" />
-                </div>
-                <h3 className="text-2xl font-black leading-tight text-white tracking-tight">Explore the relationship between wavelength and momentum in De Broglie's...</h3>
-                <div className="flex items-center gap-3 py-6 px-10 rounded-[2rem] bg-black/20 border border-[#1f1f22]">
-                   <div className="w-2 h-2 rounded-full bg-[#52525b]"></div>
-                   <div className="h-2 flex-1 bg-[#1f1f22] rounded-full overflow-hidden truncate"></div>
-                </div>
+                ))}
               </div>
             </div>
 
-            {/* Sticky Actions Bar */}
-            <div className="absolute bottom-12 left-12 right-12 flex items-center justify-center pointer-events-none">
-               <div className="bg-black/80 backdrop-blur-2xl border border-white/10 rounded-[4rem] p-4 flex gap-6 shadow-[0_30px_100px_rgba(0,0,0,0.8)] pointer-events-auto">
-                 <button className="flex items-center gap-4 px-10 py-5 rounded-[3rem] bg-[#18181b] hover:bg-[#27272a] text-[12px] font-black uppercase tracking-[0.2em] text-[#a1a1aa] transition active:scale-95 group">
-                   <Save size={20} className="group-hover:text-white transition" /> Save Draft
-                 </button>
-                 <button className="flex items-center gap-4 px-14 py-5 rounded-[3rem] bg-gradient-to-r from-[#a87ffb] to-[#c0a3ff] text-white text-[12px] font-black uppercase tracking-[0.25em] shadow-[0_15px_40px_rgba(168,127,246,0.3)] hover:scale-105 active:scale-95 transition-all duration-300">
-                   <Play size={20} fill="white" /> Start Quiz
-                 </button>
-               </div>
+            {/* Second Question Preview */}
+            <div className="bg-[#1f1f23] border border-white/[0.06] rounded-2xl p-4 opacity-60">
+              <div className="flex items-center justify-between">
+                <span className="text-[9px] font-bold text-zinc-700 uppercase tracking-widest">Question 02</span>
+                <ChevronDown size={14} className="text-zinc-700" />
+              </div>
+              <p className="text-[13px] text-zinc-500 mt-2 leading-relaxed line-clamp-2">
+                Explain the relationship between quantum entanglement and the concept of non-locality in quantum mechanics...
+              </p>
             </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="px-6 py-4 border-t border-white/[0.06] flex items-center justify-end gap-3 shrink-0">
+            <button className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/[0.08] bg-[#2a2a30] text-[13px] font-semibold text-zinc-300 hover:text-white hover:bg-white/[0.06] transition">
+              <BookOpen size={15} />
+              Save Draft
+            </button>
+            <button className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#a87ffb] text-[13px] font-semibold text-white hover:bg-[#8d6bd0] transition shadow-[0_4px_20px_rgba(168,127,251,0.3)]">
+              <span>▶</span>
+              Start Quiz
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Page Footer */}
-      <footer className="pt-24 pb-8 flex items-center justify-between border-t border-[#1f1f22]">
-        <div className="flex items-center gap-12 text-[11px] font-black uppercase tracking-[0.4em] text-[#52525b]">
-           <span>© 2024 ARCHIVIST AI</span>
-           <span>PROTOCOL v.2.1</span>
-           <span>RESOURCES</span>
+      {/* Footer */}
+      <div className="px-8 py-3 border-t border-white/[0.06] bg-[#1a1a1a] flex items-center justify-between shrink-0">
+        <div className="flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-zinc-800">
+          <span>© 2024 Archivist AI</span>
+          <span>Protocol V.2.1</span>
+          <span>Resources</span>
         </div>
-        <div className="flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-[#34d399] opacity-80">
-           <span className="w-2 h-2 rounded-full bg-[#34d399] animate-pulse"></span>
-           SYSTEM STATUS: OPTIMAL
+        <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#34d399]">
+          <span className="w-2 h-2 rounded-full bg-[#34d399] animate-pulse" />
+          System Status: Optimal
         </div>
-      </footer>
+      </div>
     </div>
   )
 }

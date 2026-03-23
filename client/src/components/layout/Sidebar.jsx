@@ -9,7 +9,7 @@ import {
   Settings,
   HelpCircle as SupportIcon,
   Plus,
-  Library
+  BookOpen
 } from 'lucide-react'
 
 const navItems = [
@@ -25,79 +25,65 @@ export default function Sidebar() {
   const navigate = useNavigate()
 
   return (
-    <aside
-      className="flex flex-col w-64 shrink-0 border-r border-[#1f1f22] bg-[#0a0a0a]"
-    >
-      {/* Logo Section */}
-      <div className="flex items-center gap-4 px-6 py-12">
-        <div className="w-11 h-11 rounded-xl bg-[#a87ffb] flex items-center justify-center shadow-[0_8px_25px_rgba(168,127,251,0.3)]">
-          <Library size={24} className="text-white fill-white/20" />
+    <aside className="flex flex-col w-[220px] shrink-0 bg-[#141414] border-r border-white/[0.06]" style={{ backgroundImage: 'radial-gradient(circle, #2a2a2a 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
+      {/* Logo */}
+      <div className="flex items-center gap-3 px-5 pt-8 pb-6">
+        <div className="w-8 h-8 rounded-lg bg-[#7c5cbf] flex items-center justify-center shrink-0">
+          <BookOpen size={16} className="text-white" />
         </div>
-        <div className="space-y-0.5">
-          <h2 className="font-black text-[18px] tracking-tight text-white leading-tight">The Archivist</h2>
-          <p className="text-[9px] uppercase tracking-[0.2em] font-black text-zinc-600">Academic Sanctuary</p>
+        <div>
+          <p className="text-white font-bold text-[14px] leading-tight">The Archivist</p>
+          <p className="text-[10px] uppercase tracking-widest text-zinc-600 leading-tight">Academic Sanctuary</p>
         </div>
       </div>
 
-      {/* New Session Button */}
-      <div className="px-5 mb-8">
+      {/* New Session */}
+      <div className="px-4 pb-6">
         <button
           onClick={() => navigate('/chat')}
-          className="w-full h-14 flex items-center justify-center gap-3 rounded-2xl bg-[#a87ffb] text-white font-black text-[15px] transition-all hover:scale-[1.02] hover:brightness-110 shadow-[0_12px_40px_rgba(168,127,246,0.2)] active:scale-95"
+          className="w-full h-10 flex items-center justify-center gap-2 rounded-full bg-[#7c5cbf] hover:bg-[#8d6bd0] text-white font-semibold text-[13px] transition-all active:scale-95 shadow-[0_4px_20px_rgba(124,92,191,0.3)]"
         >
-          <Plus size={20} strokeWidth={3} />
+          <Plus size={16} strokeWidth={2.5} />
           New Session
         </button>
       </div>
 
-      {/* Navigation */}
-      <nav className="flex-1 px-3 space-y-1 pt-4">
+      {/* Nav */}
+      <nav className="flex-1 px-2 space-y-0.5">
         {navItems.map(({ to, icon: Icon, label }) => (
           <NavLink
             key={to}
             to={to}
             className={({ isActive }) =>
-              `flex items-center gap-4 px-4 py-3 rounded-xl text-[14px] font-bold transition-all group relative ${
+              `flex items-center gap-3 px-3 py-2.5 rounded-lg text-[13px] font-medium transition-all group relative ${
                 isActive
-                  ? 'text-white bg-[#111113]'
-                  : 'text-[#52525b] hover:text-white hover:bg-white/5'
+                  ? 'text-white bg-white/[0.08]'
+                  : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.04]'
               }`
             }
           >
             {({ isActive }) => (
               <>
-                <div className="relative flex items-center">
-                  {isActive && (
-                    <div className="absolute -left-[18px] top-1/2 -translate-y-1/2 w-[2px] h-5 rounded-r-full bg-[#a87ffb] shadow-[0_0_15px_rgba(168,127,251,0.5)]"></div>
-                  )}
-                  <Icon 
-                    size={18} 
-                    className={isActive ? 'text-[#a87ffb]' : 'text-zinc-800 group-hover:text-zinc-500'} 
-                    strokeWidth={isActive ? 2.5 : 2}
-                  />
-                </div>
-                <span className={isActive ? 'opacity-100' : 'opacity-70'}>{label}</span>
+                {isActive && (
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r-full bg-[#a87ffb]" />
+                )}
+                <Icon size={16} className={isActive ? 'text-[#a87ffb]' : 'text-zinc-600 group-hover:text-zinc-400'} strokeWidth={2} />
+                <span>{label}</span>
               </>
             )}
           </NavLink>
         ))}
       </nav>
 
-      {/* Bottom Actions */}
-      <div className="mt-auto px-4 pb-12 space-y-1 border-t border-archivist-border pt-8">
-        <NavLink
-          to="/settings"
-          className="flex items-center gap-4 px-4 py-3 rounded-xl text-[14px] font-bold text-[#52525b] transition-all hover:text-white hover:bg-white/5 group"
-        >
-          <Settings size={18} className="text-zinc-800 group-hover:text-zinc-500" />
-          <span className="opacity-70">Settings</span>
+      {/* Bottom */}
+      <div className="px-2 pb-6 pt-4 border-t border-white/[0.06] space-y-0.5">
+        <NavLink to="/settings" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[13px] font-medium text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.04] transition-all group">
+          <Settings size={16} className="text-zinc-600 group-hover:text-zinc-400" />
+          <span>Settings</span>
         </NavLink>
-        <NavLink
-          to="/support"
-          className="flex items-center gap-4 px-4 py-3 rounded-xl text-[14px] font-bold text-[#52525b] transition-all hover:text-white hover:bg-white/5 group"
-        >
-          <SupportIcon size={18} className="text-zinc-800 group-hover:text-zinc-500" />
-          <span className="opacity-70">Support</span>
+        <NavLink to="/support" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[13px] font-medium text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.04] transition-all group">
+          <SupportIcon size={16} className="text-zinc-600 group-hover:text-zinc-400" />
+          <span>Support</span>
         </NavLink>
       </div>
     </aside>

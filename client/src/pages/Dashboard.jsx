@@ -1,219 +1,190 @@
-import { 
-  MessageSquare, 
-  FileText, 
-  HelpCircle, 
-  FileSearch, 
-  Smile, 
+import {
+  MessageSquare,
+  FileText,
+  HelpCircle,
+  FileSearch,
+  Smile,
   ArrowRight,
-  Clock,
+  RotateCcw,
   Share2,
   Download,
-  Eye,
+  ExternalLink,
   TrendingUp,
-  Database,
-  ArrowUpRight
+  Database
 } from 'lucide-react'
 
 export default function Dashboard() {
   return (
-    <div className="animate-fade-in max-w-[1400px] mx-auto space-y-32 pb-32 pt-8">
-      {/* Header Section */}
-      <div className="space-y-6 max-w-4xl">
-        <div className="flex items-center gap-4 text-[12px] font-black uppercase tracking-[0.4em] text-zinc-800">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#34d399] animate-pulse shadow-[0_0_12px_rgba(52,211,153,0.5)]"></span>
-          SYSTEM READY • 4.0 QUANTUM CORE ACTIVE
-        </div>
-        <h1 className="text-8xl font-black tracking-tight text-white leading-[1.05]">
-          Welcome, <br />
-          <span className="text-[#a87ffb]">Archivist.</span>
+    <div className="p-8 space-y-6">
+      {/* Header */}
+      <div className="space-y-1">
+        <h1 className="text-[36px] font-black text-white tracking-tight leading-tight">
+          Welcome, <span className="text-[#a87ffb]">Archivist.</span>
         </h1>
+        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-600 flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#34d399] inline-block animate-pulse" />
+          System Ready • 4.0 Quantum Core Active
+        </p>
       </div>
 
-      {/* Primary Tools Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-        {/* Large AI Chat Card */}
-        <div className="lg:col-span-2 group relative overflow-hidden rounded-[4rem] border border-archivist-border p-16 transition-all hover:bg-[#0d0d0f] bg-archivist-card shadow-archivist hover:border-archivist-border-strong duration-500">
-          <div className="flex flex-col h-full justify-between">
-            <div className="space-y-12">
-              <div className="w-24 h-24 rounded-[1.8rem] flex items-center justify-center bg-[#a87ffb]/5 border border-[#a87ffb]/10 group-hover:bg-[#a87ffb]/10 transition-colors duration-500">
-                <MessageSquare size={44} className="text-[#a87ffb]" />
-              </div>
-              <div className="space-y-6">
-                <h3 className="text-5xl font-black text-white tracking-tight">AI Chat</h3>
-                <p className="text-[20px] text-zinc-500 leading-relaxed max-w-[500px] font-medium">
-                  Deep academic inquiries and conversational study assistance with contextual memory.
-                </p>
-              </div>
+      {/* Top Feature Grid */}
+      <div className="grid grid-cols-3 gap-4">
+        {/* AI Chat - Large */}
+        <div className="col-span-1 row-span-2 bg-[#1f1f23] border border-white/[0.06] rounded-2xl p-6 flex flex-col justify-between group hover:border-white/10 transition-all cursor-pointer min-h-[280px]">
+          <div className="space-y-4">
+            <MessageSquare size={28} className="text-zinc-400" />
+            <div>
+              <h3 className="text-[22px] font-bold text-white">AI Chat</h3>
+              <p className="text-[13px] text-zinc-500 mt-1 leading-relaxed">
+                Deep academic inquiries and conversational study assistance with contextual memory.
+              </p>
             </div>
-            <div className="flex items-end justify-between mt-20">
-              <span className="text-[11px] font-black tracking-[0.3em] uppercase text-zinc-800 transition group-hover:text-zinc-600">ACTIVE PROTOCOL: GPT-4O</span>
-              <div className="w-16 h-16 rounded-full border border-archivist-border flex items-center justify-center transition group-hover:bg-[#a87ffb] group-hover:border-transparent group-hover:shadow-[0_15px_40px_rgba(168,127,251,0.3)] duration-500">
-                <ArrowRight size={28} className="text-zinc-600 group-hover:text-white transition duration-500" />
-              </div>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-700">Active Protocol: GPT-40</span>
+            <div className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-[#a87ffb] group-hover:border-transparent transition-all">
+              <ArrowRight size={16} className="text-zinc-500 group-hover:text-white" />
             </div>
           </div>
         </div>
 
-        {/* Summarizer Card */}
-        <div className="group relative overflow-hidden rounded-[3.5rem] border border-archivist-border p-12 transition-all bg-archivist-card hover:bg-[#0d0d0f] shadow-archivist hover:border-archivist-border-strong duration-500">
-          <div className="flex flex-col h-full justify-between">
-            <div className="space-y-10">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-[#34d399]/5 border border-[#34d399]/10 group-hover:bg-[#34d399]/10 transition-colors duration-300">
-                <FileText size={32} className="text-[#34d399]" />
-              </div>
-              <div className="space-y-6">
-                <h3 className="text-4xl font-black text-white tracking-tight leading-tight">Summarizer</h3>
-                <p className="text-[17px] text-zinc-500 leading-relaxed font-bold">
-                  Condense long papers into actionable bullet points.
-                </p>
-              </div>
-            </div>
-            <div className="mt-16">
-              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-[#34d399] bg-[#34d399]/5 px-6 py-3 rounded-full border border-[#34d399]/10">READY FOR UPLOAD</span>
+        {/* Summarizer */}
+        <div className="bg-[#1f1f23] border border-white/[0.06] rounded-2xl p-5 flex flex-col justify-between group hover:border-white/10 transition-all cursor-pointer">
+          <div className="space-y-3">
+            <FileText size={22} className="text-[#34d399]" />
+            <div>
+              <h3 className="text-[17px] font-bold text-white">Summarizer</h3>
+              <p className="text-[12px] text-zinc-500 mt-1 leading-relaxed">Condense long papers into actionable bullet points.</p>
             </div>
           </div>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-[#34d399]">Ready for Upload</span>
         </div>
 
-        {/* Q&A Card */}
-        <div className="group relative overflow-hidden rounded-[3.5rem] border border-archivist-border p-12 transition-all bg-archivist-card hover:bg-[#0d0d0f] shadow-archivist hover:border-archivist-border-strong duration-500">
-          <div className="flex flex-col h-full justify-between">
-            <div className="space-y-10">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-[#fbbf24]/5 border border-[#fbbf24]/10 group-hover:bg-[#fbbf24]/10 transition-colors duration-300">
-                <HelpCircle size={32} className="text-[#fbbf24]" />
-              </div>
-              <div className="space-y-6">
-                <h3 className="text-4xl font-black text-white tracking-tight leading-tight">Q&A Generator</h3>
-                <p className="text-[17px] text-zinc-500 leading-relaxed font-bold">
-                  Create flashcards and exam questions from your notes.
-                </p>
-              </div>
-            </div>
-            <div className="mt-16">
-              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-[#fbbf24] bg-[#fbbf24]/5 px-6 py-3 rounded-full border border-[#fbbf24]/10">MODES AVAILABLE</span>
+        {/* Q&A Generator */}
+        <div className="bg-[#1f1f23] border border-white/[0.06] rounded-2xl p-5 flex flex-col justify-between group hover:border-white/10 transition-all cursor-pointer">
+          <div className="space-y-3">
+            <HelpCircle size={22} className="text-[#fbbf24]" />
+            <div>
+              <h3 className="text-[17px] font-bold text-white">Q&A Generator</h3>
+              <p className="text-[12px] text-zinc-500 mt-1 leading-relaxed">Create flashcards and exam questions from your notes.</p>
             </div>
           </div>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-[#fbbf24]">3 Modes Available</span>
         </div>
 
-        {/* Analytics Card */}
-        <div className="lg:col-span-2 group relative overflow-hidden rounded-[4rem] border border-archivist-border p-16 transition-all bg-archivist-card shadow-archivist duration-500">
-          <div className="flex flex-col h-full gap-10">
-            <div className="flex items-center justify-between">
-              <h3 className="text-[12px] font-black tracking-[0.4em] uppercase text-zinc-800">LEARNING VELOCITY</h3>
-              <div className="flex items-center gap-2 text-[#34d399] text-[12px] font-black uppercase tracking-[0.1em] bg-[#34d399]/5 px-4 py-2 rounded-lg border border-[#34d399]/10">
-                <TrendingUp size={16} /> +24.8% GROW
-              </div>
+        {/* Resume Analyzer */}
+        <div className="bg-[#1f1f23] border border-white/[0.06] rounded-2xl p-5 flex flex-col justify-between group hover:border-white/10 transition-all cursor-pointer">
+          <div className="space-y-3">
+            <FileSearch size={22} className="text-zinc-500" />
+            <div>
+              <h3 className="text-[17px] font-bold text-white">Resume Analyzer</h3>
+              <p className="text-[12px] text-zinc-500 mt-1 leading-relaxed">Optimize your career path with AI-driven feedback.</p>
             </div>
-            
-            <div className="flex-1 flex items-end gap-8 h-48 mb-10 px-4">
-              {[30, 50, 40, 70, 45, 85, 65, 95, 80].map((h, i) => (
-                <div key={i} className={`flex-1 rounded-t-2xl transition-all hover:scale-x-110 duration-500 ${i === 7 ? 'bg-[#a87ffb] shadow-[0_0_40px_rgba(168,127,251,0.4)]' : 'bg-[#18181b] border border-white/5 opacity-40 group-hover:opacity-100'}`}
-                     style={{ height: `${h}%` }}></div>
-              ))}
-            </div>
+          </div>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-zinc-700">ATS Compliant</span>
+        </div>
 
-            <div className="flex items-center justify-between pt-12 border-t border-archivist-border">
-              <div className="space-y-2">
-                <p className="text-6xl font-black text-white tracking-tighter">14.2h</p>
-                <p className="text-[12px] text-zinc-800 uppercase tracking-[0.3em] font-black">Session time this week</p>
-              </div>
-              <div className="flex -space-x-4">
-                {[1,2,3,4].map(i => (
-                  <div key={i} className="w-12 h-12 rounded-full border-4 border-archivist-card bg-zinc-800 flex items-center justify-center text-[10px] font-black group-hover:translate-x-1 duration-300 transition-transform">
-                    {i}
-                  </div>
-                ))}
-              </div>
+        {/* Meme Generator */}
+        <div className="bg-[#1f1f23] border border-white/[0.06] rounded-2xl p-5 flex flex-col justify-between group hover:border-white/10 transition-all cursor-pointer">
+          <div className="space-y-3">
+            <Smile size={22} className="text-[#34d399]" />
+            <div>
+              <h3 className="text-[17px] font-bold text-white">Meme Generator</h3>
+              <p className="text-[12px] text-zinc-500 mt-1 leading-relaxed">Relieve study stress with academically accurate memes.</p>
+            </div>
+          </div>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-[#34d399]">Generate Now</span>
+        </div>
+
+        {/* Learning Velocity */}
+        <div className="col-span-1 bg-[#1f1f23] border border-white/[0.06] rounded-2xl p-5 group hover:border-white/10 transition-all">
+          <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-600 mb-4">Learning Velocity</p>
+          <div className="flex items-end gap-1.5 h-16 mb-4">
+            {[35, 55, 40, 65, 50, 80, 60, 90, 75].map((h, i) => (
+              <div
+                key={i}
+                className={`flex-1 rounded-sm ${i === 7 ? 'bg-[#a87ffb]' : 'bg-[#2d2d35]'}`}
+                style={{ height: `${h}%` }}
+              />
+            ))}
+          </div>
+          <div className="flex items-end justify-between">
+            <div>
+              <p className="text-[24px] font-black text-white leading-none">14.2h</p>
+              <p className="text-[10px] text-zinc-600 mt-1">Session time this week</p>
+            </div>
+            <div className="text-right">
+              <p className="text-[20px] font-black text-[#34d399] leading-none">+24%</p>
+              <p className="text-[10px] text-zinc-600 mt-1">Efficiency growth</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Archives Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-24">
-        {/* Recent Archives List */}
-        <div className="lg:col-span-8 space-y-16">
-          <div className="flex items-center justify-between border-b border-archivist-border pb-8">
-             <h2 className="text-5xl font-black text-white tracking-tight italic">
-               Recent Archives
-             </h2>
-             <button className="text-[12px] font-black uppercase tracking-[0.3em] text-zinc-700 hover:text-white transition">VIEW ALL</button>
+      {/* Bottom Section */}
+      <div className="grid grid-cols-12 gap-4">
+        {/* Recent Archives */}
+        <div className="col-span-7 space-y-4">
+          <div className="flex items-center gap-2">
+            <RotateCcw size={18} className="text-zinc-500" />
+            <h2 className="text-[20px] font-bold text-white">Recent Archives</h2>
           </div>
-          
-          <div className="space-y-6">
+          <div className="space-y-2">
             {[
-              { name: 'The Ethics of Neural Networks.pdf', sub: 'Summarized • 2 hours ago', icon: FileText, color: '#a87ffb' },
-              { name: 'Quantum Mechanics Deep Dive', sub: 'Chat Session • Yesterday', icon: MessageSquare, color: '#34d399' },
-              { name: 'Product_Manager_Resume_V2.docx', sub: 'Analyzed • 3 days ago', icon: Database, color: '#fbbf24' }
+              { name: 'The Ethics of Neural Networks.pdf', sub: 'Summarized • 2 hours ago', icon: FileText, actions: ['download', 'share'] },
+              { name: 'Quantum Mechanics Deep Dive', sub: 'Chat Session • Yesterday', icon: MessageSquare, actions: ['external'] },
+              { name: 'Product_Manager_Resume_V2.docx', sub: 'Analyzed • 3 days ago', icon: Database, actions: ['view'] },
             ].map((item, i) => (
-              <div key={i} className="flex items-center justify-between p-10 pr-14 rounded-[3.5rem] bg-archivist-card border border-archivist-border transition hover:bg-[#0d0d0f] hover:border-archivist-border-strong shadow-archivist group duration-500">
-                <div className="flex items-center gap-10">
-                  <div className="w-20 h-20 rounded-[1.8rem] flex items-center justify-center bg-[#18181b] border border-white/5 group-hover:bg-black transition-colors duration-500">
-                    <item.icon size={32} className="text-zinc-800 group-hover:text-white transition duration-500" />
+              <div key={i} className="flex items-center justify-between px-4 py-3 rounded-xl bg-[#1f1f23] border border-white/[0.06] hover:border-white/10 transition-all group cursor-pointer">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#2a2a30] flex items-center justify-center">
+                    <item.icon size={18} className="text-zinc-500 group-hover:text-zinc-300 transition" />
                   </div>
-                  <div className="space-y-3">
-                    <h4 className="text-[22px] font-black text-white tracking-tight group-hover:text-[#a87ffb] transition duration-500">{item.name}</h4>
-                    <p className="text-[15px] text-zinc-700 font-bold">{item.sub}</p>
+                  <div>
+                    <p className="text-[14px] font-semibold text-white">{item.name}</p>
+                    <p className="text-[12px] text-zinc-600">{item.sub}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-12 text-zinc-800">
-                   <Download size={24} className="hover:text-white transition-all cursor-pointer hover:scale-110" />
-                   <Share2 size={24} className="hover:text-white transition-all cursor-pointer hover:scale-110" />
-                   <div className="w-12 h-12 rounded-full border border-archivist-border flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all cursor-pointer duration-500">
-                     <ArrowUpRight size={24} />
-                   </div>
+                <div className="flex items-center gap-3 text-zinc-700">
+                  {item.actions.includes('download') && <Download size={16} className="hover:text-white cursor-pointer transition" />}
+                  {item.actions.includes('share') && <Share2 size={16} className="hover:text-white cursor-pointer transition" />}
+                  {item.actions.includes('external') && <ExternalLink size={16} className="hover:text-white cursor-pointer transition" />}
+                  {item.actions.includes('view') && <TrendingUp size={16} className="hover:text-white cursor-pointer transition" />}
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Sidebar Insights */}
-        <div className="lg:col-span-4 space-y-16">
-          <div className="space-y-10">
-            <h2 className="text-4xl font-black text-white tracking-tight px-4 underline decoration-[#a87ffb]/30 decoration-8 underline-offset-8">Insights</h2>
-            <div className="rounded-[4rem] border border-archivist-border p-14 space-y-12 relative overflow-hidden bg-archivist-card group shadow-2xl transition hover:border-[#a87ffb]/30 duration-700">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#a87ffb]/5 rounded-full -mr-16 -mt-16 blur-3xl transition group-hover:bg-[#a87ffb]/10 duration-700"></div>
-              <p className="text-[22px] leading-[1.7] italic text-zinc-500 font-bold opacity-90 group-hover:text-zinc-300 transition duration-500">
-                "Your neural network analysis shows a high level of academic rigor. We've prepared a specialized 'Advanced Ethics' quiz for you."
-              </p>
-              <button className="flex items-center gap-5 text-[#a87ffb] font-black text-[14px] uppercase tracking-[0.3em] transition-all hover:gap-8 group/btn">
-                TAKE QUIZ <ArrowRight size={22} className="group-hover/btn:translate-x-2 transition-transform duration-500" />
-              </button>
-            </div>
+        {/* Archive Insights */}
+        <div className="col-span-5 space-y-4">
+          <h2 className="text-[20px] font-bold text-white">Archive Insights</h2>
+          <div className="bg-[#1f1f23] border-l-4 border-l-[#a87ffb] border-y border-r border-white/[0.06] rounded-r-xl p-5 space-y-3">
+            <p className="text-[13px] text-zinc-400 italic leading-relaxed">
+              "Based on your recent summaries of neural network ethics, you might find the 'AI Regulation' module useful for your next session."
+            </p>
+            <button className="flex items-center gap-2 text-[#a87ffb] text-[12px] font-bold uppercase tracking-wider hover:gap-3 transition-all">
+              View Module <ArrowRight size={14} />
+            </button>
           </div>
 
-          <div className="p-14 rounded-[4rem] border border-archivist-border bg-archivist-card space-y-12 shadow-2xl relative overflow-hidden group">
-            <div className="space-y-4">
-              <h4 className="text-[13px] font-black uppercase tracking-[0.4em] text-zinc-800">ARCHIVE QUOTA</h4>
-              <p className="text-zinc-500 text-[14px] font-bold">8.2 GB of 10 GB used</p>
-            </div>
-            
-            <div className="space-y-8">
-              <div className="h-4 w-full bg-[#18181b] rounded-full overflow-hidden shadow-inner">
-                <div className="h-full rounded-full bg-gradient-to-r from-[#a87ffb] via-[#c0a3ff] to-[#a87ffb] bg-[length:200%_auto] animate-gradient-x shadow-[0_0_25px_rgba(168,127,251,0.4)]" style={{ width: '82%' }}></div>
+          <div className="bg-[#1f1f23] border border-white/[0.06] rounded-xl p-5 space-y-4">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-600">Your Archive Space</p>
+            <div>
+              <div className="flex justify-between text-[12px] font-semibold mb-2">
+                <span className="text-zinc-500">Storage Used</span>
+                <span className="text-white">82%</span>
+              </div>
+              <div className="h-2 bg-[#2a2a30] rounded-full overflow-hidden">
+                <div className="h-full bg-[#a87ffb] rounded-full" style={{ width: '82%' }} />
               </div>
             </div>
-
-            <button className="w-full h-18 text-[13px] font-black uppercase tracking-[0.3em] border border-archivist-border rounded-[2.5rem] transition hover:bg-white hover:text-black hover:border-transparent text-zinc-700 active:scale-95 duration-500 shadow-xl">
-              Upgrade Sanctuary
+            <button className="w-full py-2.5 rounded-xl border border-white/[0.08] text-[13px] font-semibold text-zinc-400 hover:text-white hover:bg-white/[0.04] transition-all">
+              Manage Storage
             </button>
           </div>
         </div>
       </div>
-
-      {/* Protocol Footer */}
-      <footer className="pt-32 pb-16 flex flex-col md:flex-row items-center justify-between border-t border-archivist-border gap-12">
-        <div className="flex items-center gap-16 text-[12px] font-black uppercase tracking-[0.5em] text-zinc-900">
-           <span>ARCHIVIST // {new Date().getFullYear()}</span>
-           <span className="opacity-40">PROTOCOL V.2.4</span>
-           <span className="hover:text-[#a87ffb] transition cursor-pointer">LEGAL</span>
-        </div>
-        <div className="flex items-center gap-4 text-[12px] font-black uppercase tracking-[0.4em] text-[#34d399]">
-           <span className="w-3 h-3 rounded-full bg-[#34d399] animate-ping opacity-20"></span>
-           <span className="w-3 h-3 rounded-full bg-[#34d399] -ml-7 shadow-[0_0_15px_rgba(52,211,153,0.5)]"></span>
-           ENCRYPTED CONNECTION ACTIVE
-        </div>
-      </footer>
     </div>
   )
 }

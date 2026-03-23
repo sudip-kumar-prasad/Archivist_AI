@@ -4,19 +4,26 @@ import Topbar from './Topbar'
 
 export default function Layout() {
   return (
+    // Outer shell: dark with visible dot-grid pattern
     <div
-      className="h-screen w-screen bg-[#0d0d0d] flex items-center justify-center"
+      className="h-screen w-screen flex items-center justify-center"
       style={{
-        backgroundImage: 'radial-gradient(rgba(100,100,130,0.25) 1px, transparent 1px)',
-        backgroundSize: '20px 20px',
-        padding: '10px'
+        backgroundColor: '#0e0e0e',
+        backgroundImage: 'radial-gradient(rgba(80,80,100,0.3) 1px, transparent 1px)',
+        backgroundSize: '22px 22px',
+        padding: '12px',
       }}
     >
-      <div className="flex h-full w-full rounded-[14px] overflow-hidden border border-white/[0.1] shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_30px_80px_rgba(0,0,0,0.9)]">
+      {/* Inner rounded app window */}
+      <div className="flex h-full w-full overflow-hidden" style={{
+        borderRadius: '14px',
+        border: '1px solid rgba(255,255,255,0.09)',
+        boxShadow: '0 0 0 1px rgba(255,255,255,0.03), 0 30px 80px rgba(0,0,0,0.9)',
+      }}>
         <Sidebar />
         <div className="flex flex-col flex-1 overflow-hidden bg-[#1b1b1f]">
           <Topbar />
-          <main className="flex-1 overflow-y-auto custom-scrollbar bg-[#1b1b1f]">
+          <main className="flex-1 overflow-y-auto custom-scrollbar">
             <Outlet />
           </main>
         </div>

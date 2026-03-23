@@ -51,15 +51,15 @@ export default function Sidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-3 space-y-1.5 pt-4">
+      <nav className="flex-1 px-3 space-y-1 pt-4">
         {navItems.map(({ to, icon: Icon, label }) => (
           <NavLink
             key={to}
             to={to}
             className={({ isActive }) =>
-              `flex items-center gap-5 px-4 py-4 rounded-xl text-[14px] font-bold transition-all group relative ${
+              `flex items-center gap-4 px-4 py-3 rounded-xl text-[14px] font-bold transition-all group relative ${
                 isActive
-                  ? 'text-white bg-[#18181b]'
+                  ? 'text-white bg-[#111113]'
                   : 'text-[#52525b] hover:text-white hover:bg-white/5'
               }`
             }
@@ -68,15 +68,15 @@ export default function Sidebar() {
               <>
                 <div className="relative flex items-center">
                   {isActive && (
-                    <div className="absolute -left-[18px] top-1/2 -translate-y-1/2 w-[2px] h-6 rounded-r-full bg-[#a87ffb] shadow-[0_0_15px_rgba(168,127,251,0.5)]"></div>
+                    <div className="absolute -left-[18px] top-1/2 -translate-y-1/2 w-[2px] h-5 rounded-r-full bg-[#a87ffb] shadow-[0_0_15px_rgba(168,127,251,0.5)]"></div>
                   )}
                   <Icon 
-                    size={20} 
+                    size={18} 
                     className={isActive ? 'text-[#a87ffb]' : 'text-zinc-800 group-hover:text-zinc-500'} 
                     strokeWidth={isActive ? 2.5 : 2}
                   />
                 </div>
-                <span className={isActive ? 'opacity-100' : 'opacity-80'}>{label}</span>
+                <span className={isActive ? 'opacity-100' : 'opacity-70'}>{label}</span>
               </>
             )}
           </NavLink>
@@ -84,20 +84,20 @@ export default function Sidebar() {
       </nav>
 
       {/* Bottom Actions */}
-      <div className="mt-auto px-4 pb-12 space-y-1 border-t border-[#1f1f22] pt-8">
+      <div className="mt-auto px-4 pb-12 space-y-1 border-t border-archivist-border pt-8">
         <NavLink
           to="/settings"
-          className="flex items-center gap-5 px-4 py-4 rounded-xl text-[14px] font-bold text-[#52525b] transition-all hover:text-white hover:bg-white/5 group"
+          className="flex items-center gap-4 px-4 py-3 rounded-xl text-[14px] font-bold text-[#52525b] transition-all hover:text-white hover:bg-white/5 group"
         >
-          <Settings size={20} className="text-zinc-800 group-hover:text-zinc-500" />
-          <span className="opacity-80">Settings</span>
+          <Settings size={18} className="text-zinc-800 group-hover:text-zinc-500" />
+          <span className="opacity-70">Settings</span>
         </NavLink>
         <NavLink
           to="/support"
-          className="flex items-center gap-5 px-4 py-4 rounded-xl text-[14px] font-bold text-[#52525b] transition-all hover:text-white hover:bg-white/5 group"
+          className="flex items-center gap-4 px-4 py-3 rounded-xl text-[14px] font-bold text-[#52525b] transition-all hover:text-white hover:bg-white/5 group"
         >
-          <SupportIcon size={20} className="text-zinc-800 group-hover:text-zinc-500" />
-          <span className="opacity-80">Support</span>
+          <SupportIcon size={18} className="text-zinc-800 group-hover:text-zinc-500" />
+          <span className="opacity-70">Support</span>
         </NavLink>
       </div>
     </aside>

@@ -16,234 +16,202 @@ import {
 
 export default function Dashboard() {
   return (
-    <div className="animate-fade-in max-w-7xl mx-auto space-y-16 pb-20">
-      {/* Header */}
-      <div className="space-y-4">
-        <h1 className="text-72px font-black tracking-tight text-white leading-[1.1]">
-          Welcome, <span className="text-[#a87ffb]">Archivist.</span>
-        </h1>
-        <div className="flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-[#52525b]">
+    <div className="animate-fade-in max-w-[1400px] mx-auto space-y-32 pb-32 pt-8">
+      {/* Header Section */}
+      <div className="space-y-6 max-w-4xl">
+        <div className="flex items-center gap-4 text-[12px] font-black uppercase tracking-[0.4em] text-zinc-800">
           <span className="w-2.5 h-2.5 rounded-full bg-[#34d399] animate-pulse shadow-[0_0_12px_rgba(52,211,153,0.5)]"></span>
           SYSTEM READY • 4.0 QUANTUM CORE ACTIVE
         </div>
+        <h1 className="text-8xl font-black tracking-tight text-white leading-[1.05]">
+          Welcome, <br />
+          <span className="text-[#a87ffb]">Archivist.</span>
+        </h1>
       </div>
 
-      {/* Feature Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Primary Tools Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {/* Large AI Chat Card */}
-        <div className="lg:col-span-2 group relative overflow-hidden rounded-[3.5rem] border border-[#1f1f22] p-12 transition-all hover:bg-[#18181b] bg-[#121214]">
+        <div className="lg:col-span-2 group relative overflow-hidden rounded-[4rem] border border-archivist-border p-16 transition-all hover:bg-[#0d0d0f] bg-archivist-card shadow-archivist hover:border-archivist-border-strong duration-500">
           <div className="flex flex-col h-full justify-between">
-            <div className="space-y-10">
-              <div className="w-20 h-20 rounded-[1.5rem] flex items-center justify-center bg-[#a87ffb]/10 border border-[#a87ffb]/20">
-                <MessageSquare size={36} className="text-[#a87ffb]" />
+            <div className="space-y-12">
+              <div className="w-24 h-24 rounded-[1.8rem] flex items-center justify-center bg-[#a87ffb]/5 border border-[#a87ffb]/10 group-hover:bg-[#a87ffb]/10 transition-colors duration-500">
+                <MessageSquare size={44} className="text-[#a87ffb]" />
               </div>
-              <div className="space-y-4">
-                <h3 className="text-4xl font-black text-white tracking-tight">AI Chat</h3>
-                <p className="text-[17px] text-zinc-400 leading-relaxed max-w-[420px] font-medium">
+              <div className="space-y-6">
+                <h3 className="text-5xl font-black text-white tracking-tight">AI Chat</h3>
+                <p className="text-[20px] text-zinc-500 leading-relaxed max-w-[500px] font-medium">
                   Deep academic inquiries and conversational study assistance with contextual memory.
                 </p>
               </div>
             </div>
-            <div className="flex items-end justify-between mt-16">
-              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-800">ACTIVE PROTOCOL: GPT-4O</span>
-              <div className="w-14 h-14 rounded-full border border-[#27272a] flex items-center justify-center transition group-hover:bg-[#a87ffb] group-hover:border-transparent group-hover:shadow-[0_10px_30px_rgba(168,127,251,0.25)] duration-300">
-                <ArrowRight size={24} className="text-zinc-500 group-hover:text-white transition duration-300" />
+            <div className="flex items-end justify-between mt-20">
+              <span className="text-[11px] font-black tracking-[0.3em] uppercase text-zinc-800 transition group-hover:text-zinc-600">ACTIVE PROTOCOL: GPT-4O</span>
+              <div className="w-16 h-16 rounded-full border border-archivist-border flex items-center justify-center transition group-hover:bg-[#a87ffb] group-hover:border-transparent group-hover:shadow-[0_15px_40px_rgba(168,127,251,0.3)] duration-500">
+                <ArrowRight size={28} className="text-zinc-600 group-hover:text-white transition duration-500" />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Medium Summarizer Card */}
-        <div className="group relative overflow-hidden rounded-[3rem] border border-[#1f1f22] p-10 transition-all bg-[#121214] hover:bg-[#18181b]">
+        {/* Summarizer Card */}
+        <div className="group relative overflow-hidden rounded-[3.5rem] border border-archivist-border p-12 transition-all bg-archivist-card hover:bg-[#0d0d0f] shadow-archivist hover:border-archivist-border-strong duration-500">
           <div className="flex flex-col h-full justify-between">
-            <div className="space-y-8">
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-[#34d399]/10 border border-[#34d399]/20">
-                <FileText size={28} className="text-[#34d399]" />
+            <div className="space-y-10">
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-[#34d399]/5 border border-[#34d399]/10 group-hover:bg-[#34d399]/10 transition-colors duration-300">
+                <FileText size={32} className="text-[#34d399]" />
               </div>
-              <div className="space-y-4">
-                <h3 className="text-3xl font-black text-white tracking-tight">Summarizer</h3>
-                <p className="text-[15px] text-zinc-400 leading-relaxed font-bold">
+              <div className="space-y-6">
+                <h3 className="text-4xl font-black text-white tracking-tight leading-tight">Summarizer</h3>
+                <p className="text-[17px] text-zinc-500 leading-relaxed font-bold">
                   Condense long papers into actionable bullet points.
                 </p>
               </div>
             </div>
-            <div className="mt-12">
-              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-[#34d399] bg-[#34d399]/10 px-4 py-2 rounded-full border border-[#34d399]/20 font-black">READY FOR UPLOAD</span>
+            <div className="mt-16">
+              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-[#34d399] bg-[#34d399]/5 px-6 py-3 rounded-full border border-[#34d399]/10">READY FOR UPLOAD</span>
             </div>
           </div>
         </div>
 
-        {/* Medium Q&A Card */}
-        <div className="group relative overflow-hidden rounded-[3rem] border border-[#1f1f22] p-10 transition-all bg-[#121214] hover:bg-[#18181b]">
+        {/* Q&A Card */}
+        <div className="group relative overflow-hidden rounded-[3.5rem] border border-archivist-border p-12 transition-all bg-archivist-card hover:bg-[#0d0d0f] shadow-archivist hover:border-archivist-border-strong duration-500">
           <div className="flex flex-col h-full justify-between">
-            <div className="space-y-8">
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-[#fbbf24]/10 border border-[#fbbf24]/20">
-                <HelpCircle size={28} className="text-[#fbbf24]" />
+            <div className="space-y-10">
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-[#fbbf24]/5 border border-[#fbbf24]/10 group-hover:bg-[#fbbf24]/10 transition-colors duration-300">
+                <HelpCircle size={32} className="text-[#fbbf24]" />
               </div>
-              <div className="space-y-4">
-                <h3 className="text-3xl font-black text-white tracking-tight">Q&A Generator</h3>
-                <p className="text-[15px] text-zinc-400 leading-relaxed font-bold">
+              <div className="space-y-6">
+                <h3 className="text-4xl font-black text-white tracking-tight leading-tight">Q&A Generator</h3>
+                <p className="text-[17px] text-zinc-500 leading-relaxed font-bold">
                   Create flashcards and exam questions from your notes.
                 </p>
               </div>
             </div>
-            <div className="mt-12">
-              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-[#fbbf24] bg-[#fbbf24]/10 px-4 py-2 rounded-full border border-[#fbbf24]/20 font-black">3 MODES AVAILABLE</span>
+            <div className="mt-16">
+              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-[#fbbf24] bg-[#fbbf24]/5 px-6 py-3 rounded-full border border-[#fbbf24]/10">MODES AVAILABLE</span>
             </div>
           </div>
         </div>
 
-        {/* Small Resume Analyzer Card */}
-        <div className="group relative overflow-hidden rounded-[3rem] border border-[#1f1f22] p-10 transition-all bg-[#121214] hover:bg-[#18181b]">
-          <div className="space-y-8">
-            <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-zinc-800/30 border border-white/5 shadow-inner">
-              <FileSearch size={24} className="text-zinc-600" />
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-2xl font-black text-white tracking-tight">Resume Analyzer</h3>
-              <p className="text-[15px] text-zinc-500 leading-relaxed font-bold">
-                Optimize your career path with AI-driven feedback.
-              </p>
-            </div>
-          </div>
-          <div className="mt-12">
-            <span className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-800 font-black">ATS COMPLIANT</span>
-          </div>
-        </div>
-
-        {/* Small Meme Generator Card */}
-        <div className="group relative overflow-hidden rounded-[3rem] border border-[#1f1f22] p-10 transition-all bg-[#121214] hover:bg-[#18181b]">
-          <div className="space-y-8">
-            <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-[#34d399]/10 border border-[#34d399]/20">
-               <Smile size={24} className="text-[#34d399]" />
-            </div>
-            <div className="space-y-4">
-               <h3 className="text-2xl font-black text-white tracking-tight">Meme Generator</h3>
-               <p className="text-[15px] text-zinc-500 leading-relaxed font-bold">
-                Relieve study stress with academically accurate memes.
-              </p>
-            </div>
-          </div>
-          <div className="mt-12">
-            <span className="text-[10px] font-black tracking-[0.2em] uppercase text-[#34d399] bg-[#34d399]/10 px-4 py-2 rounded-full border border-[#34d399]/20 font-black">GENERATE NOW</span>
-          </div>
-        </div>
-
-        {/* Learning Velocity Card */}
-        <div className="lg:col-span-2 group relative overflow-hidden rounded-[3.5rem] border border-[#1f1f22] p-12 transition-all bg-[#121214]">
-          <div className="flex flex-col h-full gap-8">
+        {/* Analytics Card */}
+        <div className="lg:col-span-2 group relative overflow-hidden rounded-[4rem] border border-archivist-border p-16 transition-all bg-archivist-card shadow-archivist duration-500">
+          <div className="flex flex-col h-full gap-10">
             <div className="flex items-center justify-between">
-              <h3 className="text-[11px] font-black tracking-[0.3em] uppercase text-zinc-800">LEARNING VELOCITY</h3>
-              <TrendingUp size={20} className="text-zinc-800" />
+              <h3 className="text-[12px] font-black tracking-[0.4em] uppercase text-zinc-800">LEARNING VELOCITY</h3>
+              <div className="flex items-center gap-2 text-[#34d399] text-[12px] font-black uppercase tracking-[0.1em] bg-[#34d399]/5 px-4 py-2 rounded-lg border border-[#34d399]/10">
+                <TrendingUp size={16} /> +24.8% GROW
+              </div>
             </div>
             
-            <div className="flex-1 flex items-end gap-6 h-40 mb-10 px-4">
+            <div className="flex-1 flex items-end gap-8 h-48 mb-10 px-4">
               {[30, 50, 40, 70, 45, 85, 65, 95, 80].map((h, i) => (
-                <div key={i} className={`flex-1 rounded-t-xl transition-all hover:brightness-125 ${i === 7 ? 'bg-[#a87ffb] shadow-[0_0_25px_rgba(168,127,251,0.3)]' : 'bg-[#18181b] border border-white/5'}`}
+                <div key={i} className={`flex-1 rounded-t-2xl transition-all hover:scale-x-110 duration-500 ${i === 7 ? 'bg-[#a87ffb] shadow-[0_0_40px_rgba(168,127,251,0.4)]' : 'bg-[#18181b] border border-white/5 opacity-40 group-hover:opacity-100'}`}
                      style={{ height: `${h}%` }}></div>
               ))}
             </div>
 
-            <div className="flex items-center justify-between pt-8 border-t border-[#1f1f22]">
-              <div className="space-y-1">
-                <p className="text-5xl font-black text-white tracking-tighter">14.2h</p>
-                <p className="text-[11px] text-zinc-800 uppercase tracking-[0.2em] font-black">Session time this week</p>
+            <div className="flex items-center justify-between pt-12 border-t border-archivist-border">
+              <div className="space-y-2">
+                <p className="text-6xl font-black text-white tracking-tighter">14.2h</p>
+                <p className="text-[12px] text-zinc-800 uppercase tracking-[0.3em] font-black">Session time this week</p>
               </div>
-              <div className="text-right space-y-1">
-                <p className="text-3xl font-black text-[#34d399] tracking-tight">+24%</p>
-                <p className="text-[11px] text-zinc-800 uppercase tracking-[0.2em] font-black">Efficiency growth</p>
+              <div className="flex -space-x-4">
+                {[1,2,3,4].map(i => (
+                  <div key={i} className="w-12 h-12 rounded-full border-4 border-archivist-card bg-zinc-800 flex items-center justify-center text-[10px] font-black group-hover:translate-x-1 duration-300 transition-transform">
+                    {i}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        {/* Recent Archives */}
-        <div className="lg:col-span-8 space-y-12">
-          <div className="flex items-center gap-5 group cursor-pointer">
-             <div className="w-1.5 h-10 rounded-full bg-[#a87ffb] shadow-[0_0_15px_rgba(168,127,251,0.3)]"></div>
-             <h2 className="text-4xl font-black text-white tracking-tight italic flex items-center gap-4">
-               <Clock className="text-zinc-700" size={32} />
+      {/* Archives Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-24">
+        {/* Recent Archives List */}
+        <div className="lg:col-span-8 space-y-16">
+          <div className="flex items-center justify-between border-b border-archivist-border pb-8">
+             <h2 className="text-5xl font-black text-white tracking-tight italic">
                Recent Archives
              </h2>
+             <button className="text-[12px] font-black uppercase tracking-[0.3em] text-zinc-700 hover:text-white transition">VIEW ALL</button>
           </div>
           
-          <div className="space-y-4">
+          <div className="space-y-6">
             {[
-              { name: 'The Ethics of Neural Networks.pdf', sub: 'Summarized • 2 hours ago', icon: FileText },
-              { name: 'Quantum Mechanics Deep Dive', sub: 'Chat Session • Yesterday', icon: MessageSquare },
-              { name: 'Product_Manager_Resume_V2.docx', sub: 'Analyzed • 3 days ago', icon: Database }
+              { name: 'The Ethics of Neural Networks.pdf', sub: 'Summarized • 2 hours ago', icon: FileText, color: '#a87ffb' },
+              { name: 'Quantum Mechanics Deep Dive', sub: 'Chat Session • Yesterday', icon: MessageSquare, color: '#34d399' },
+              { name: 'Product_Manager_Resume_V2.docx', sub: 'Analyzed • 3 days ago', icon: Database, color: '#fbbf24' }
             ].map((item, i) => (
-              <div key={i} className="flex items-center justify-between p-8 pr-12 rounded-[3rem] bg-[#121214] border border-[#1f1f22] transition hover:bg-[#18181b] hover:border-zinc-800 shadow-lg group">
+              <div key={i} className="flex items-center justify-between p-10 pr-14 rounded-[3.5rem] bg-archivist-card border border-archivist-border transition hover:bg-[#0d0d0f] hover:border-archivist-border-strong shadow-archivist group duration-500">
                 <div className="flex items-center gap-10">
-                  <div className="w-16 h-16 rounded-[1.5rem] flex items-center justify-center bg-[#18181b] border border-white/5 group-hover:bg-black transition-colors duration-500">
-                    <item.icon size={28} className="text-zinc-700 group-hover:text-[#a87ffb] transition duration-500" />
+                  <div className="w-20 h-20 rounded-[1.8rem] flex items-center justify-center bg-[#18181b] border border-white/5 group-hover:bg-black transition-colors duration-500">
+                    <item.icon size={32} className="text-zinc-800 group-hover:text-white transition duration-500" />
                   </div>
-                  <div className="space-y-2">
-                    <h4 className="text-[20px] font-black text-white tracking-tight leading-none group-hover:text-[#a87ffb] transition">{item.name}</h4>
-                    <p className="text-[14px] text-zinc-700 font-bold leading-none">{item.sub}</p>
+                  <div className="space-y-3">
+                    <h4 className="text-[22px] font-black text-white tracking-tight group-hover:text-[#a87ffb] transition duration-500">{item.name}</h4>
+                    <p className="text-[15px] text-zinc-700 font-bold">{item.sub}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-10 text-zinc-800">
-                  {i === 1 ? <ArrowUpRight size={24} className="hover:text-white transition cursor-pointer" /> : (i === 2 ? <Eye size={24} className="hover:text-white transition cursor-pointer" /> : <>
-                    <Download size={22} className="hover:text-[#34d399] transition cursor-pointer" />
-                    <Share2 size={22} className="hover:text-[#a87ffb] transition cursor-pointer" />
-                  </>)}
-                  <ArrowRight size={20} className="text-zinc-900 group-hover:text-white transition" />
+                <div className="flex items-center gap-12 text-zinc-800">
+                   <Download size={24} className="hover:text-white transition-all cursor-pointer hover:scale-110" />
+                   <Share2 size={24} className="hover:text-white transition-all cursor-pointer hover:scale-110" />
+                   <div className="w-12 h-12 rounded-full border border-archivist-border flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all cursor-pointer duration-500">
+                     <ArrowUpRight size={24} />
+                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Sidebar Widgets */}
-        <div className="lg:col-span-4 space-y-12">
-          <div className="space-y-8">
-            <h2 className="text-3xl font-black text-white tracking-tight px-4">Archive Insights</h2>
-            <div className="rounded-[3.5rem] border border-[#1f1f22] p-12 space-y-10 relative overflow-hidden bg-[#121214] group shadow-inner">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#a87ffb] opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <p className="text-[20px] leading-[1.6] italic text-zinc-400 font-bold opacity-80">
-                "Based on your recent summaries of neural network ethics, you might find the 'AI Regulation' module useful for your next session."
+        {/* Sidebar Insights */}
+        <div className="lg:col-span-4 space-y-16">
+          <div className="space-y-10">
+            <h2 className="text-4xl font-black text-white tracking-tight px-4 underline decoration-[#a87ffb]/30 decoration-8 underline-offset-8">Insights</h2>
+            <div className="rounded-[4rem] border border-archivist-border p-14 space-y-12 relative overflow-hidden bg-archivist-card group shadow-2xl transition hover:border-[#a87ffb]/30 duration-700">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#a87ffb]/5 rounded-full -mr-16 -mt-16 blur-3xl transition group-hover:bg-[#a87ffb]/10 duration-700"></div>
+              <p className="text-[22px] leading-[1.7] italic text-zinc-500 font-bold opacity-90 group-hover:text-zinc-300 transition duration-500">
+                "Your neural network analysis shows a high level of academic rigor. We've prepared a specialized 'Advanced Ethics' quiz for you."
               </p>
-              <button className="flex items-center gap-4 text-[#a87ffb] font-black text-[13px] uppercase tracking-[0.2em] transition-all hover:gap-6 group/btn">
-                VIEW MODULE <ArrowRight size={20} className="group-hover/btn:translate-x-1 transition-transform" />
+              <button className="flex items-center gap-5 text-[#a87ffb] font-black text-[14px] uppercase tracking-[0.3em] transition-all hover:gap-8 group/btn">
+                TAKE QUIZ <ArrowRight size={22} className="group-hover/btn:translate-x-2 transition-transform duration-500" />
               </button>
             </div>
           </div>
 
-          <div className="p-12 pb-14 rounded-[3.5rem] border border-[#1f1f22] bg-[#121214] space-y-12 shadow-lg relative overflow-hidden">
-            <div className="space-y-2">
-              <h4 className="text-[12px] font-black uppercase tracking-[0.3em] text-zinc-700">YOUR ARCHIVE SPACE</h4>
+          <div className="p-14 rounded-[4rem] border border-archivist-border bg-archivist-card space-y-12 shadow-2xl relative overflow-hidden group">
+            <div className="space-y-4">
+              <h4 className="text-[13px] font-black uppercase tracking-[0.4em] text-zinc-800">ARCHIVE QUOTA</h4>
+              <p className="text-zinc-500 text-[14px] font-bold">8.2 GB of 10 GB used</p>
             </div>
             
-            <div className="space-y-6">
-              <div className="flex items-center justify-between text-[15px] font-black">
-                <span className="text-zinc-700">STORAGE USED</span>
-                <span className="text-white">82%</span>
-              </div>
+            <div className="space-y-8">
               <div className="h-4 w-full bg-[#18181b] rounded-full overflow-hidden shadow-inner">
-                <div className="h-full rounded-full bg-gradient-to-r from-[#a87ffb] to-[#c0a3ff] shadow-[0_0_20px_rgba(168,127,251,0.4)]" style={{ width: '82%' }}></div>
+                <div className="h-full rounded-full bg-gradient-to-r from-[#a87ffb] via-[#c0a3ff] to-[#a87ffb] bg-[length:200%_auto] animate-gradient-x shadow-[0_0_25px_rgba(168,127,251,0.4)]" style={{ width: '82%' }}></div>
               </div>
             </div>
 
-            <button className="w-full h-16 text-[12px] font-black uppercase tracking-[0.3em] border border-[#1f1f22] rounded-[2rem] transition hover:bg-white/5 hover:text-white text-zinc-600 font-black active:scale-95 duration-200 shadow-sm">
-              Manage Storage
+            <button className="w-full h-18 text-[13px] font-black uppercase tracking-[0.3em] border border-archivist-border rounded-[2.5rem] transition hover:bg-white hover:text-black hover:border-transparent text-zinc-700 active:scale-95 duration-500 shadow-xl">
+              Upgrade Sanctuary
             </button>
           </div>
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="pt-24 pb-12 flex items-center justify-between border-t border-[#1f1f22]">
-        <div className="flex items-center gap-14 text-[11px] font-black uppercase tracking-[0.4em] text-zinc-900">
-           <span>© 2024 ARCHIVIST AI</span>
-           <span>PROTOCOL V.2.1</span>
-           <span>RESOURCES</span>
+      {/* Protocol Footer */}
+      <footer className="pt-32 pb-16 flex flex-col md:flex-row items-center justify-between border-t border-archivist-border gap-12">
+        <div className="flex items-center gap-16 text-[12px] font-black uppercase tracking-[0.5em] text-zinc-900">
+           <span>ARCHIVIST // {new Date().getFullYear()}</span>
+           <span className="opacity-40">PROTOCOL V.2.4</span>
+           <span className="hover:text-[#a87ffb] transition cursor-pointer">LEGAL</span>
         </div>
-        <div className="flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-[#34d399] opacity-80">
-           <span className="w-2.5 h-2.5 rounded-full bg-[#34d399] animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.3)]"></span>
-           SYSTEM STATUS: OPTIMAL
+        <div className="flex items-center gap-4 text-[12px] font-black uppercase tracking-[0.4em] text-[#34d399]">
+           <span className="w-3 h-3 rounded-full bg-[#34d399] animate-ping opacity-20"></span>
+           <span className="w-3 h-3 rounded-full bg-[#34d399] -ml-7 shadow-[0_0_15px_rgba(52,211,153,0.5)]"></span>
+           ENCRYPTED CONNECTION ACTIVE
         </div>
       </footer>
     </div>

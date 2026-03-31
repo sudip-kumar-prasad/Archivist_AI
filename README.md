@@ -69,6 +69,12 @@ server/    -> Express backend
   utils/
 ```
 
+## Recent Updates
+
+- Refined the AI Chat interface for a smoother experience.
+- Improved the PDF summarization logic.
+- Updated project documentation.
+
 ## Notes
 
 This is a personal learning project. Might have bugs. Will keep updating it.
